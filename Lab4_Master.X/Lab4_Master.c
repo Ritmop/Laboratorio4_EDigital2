@@ -36,6 +36,8 @@
 #define _XTAL_FREQ 8000000
 /*-------------------------------- PROTOTYPES --------------------------------*/
 void setup(void);
+void readPICslave(void);
+void readRTCslave(void);
 /*------------------------------- RESET VECTOR -------------------------------*/
 
 /*----------------------------- INTERRUPT VECTOR -----------------------------*/
@@ -51,19 +53,10 @@ int main(void) {
     setup();
     while(1){
         //Loop
-        //Send data to slave
-//        I2C_Master_Start();
-//        I2C_Master_Write(0x50);
-//        I2C_Master_Write(PORTB);
-//        I2C_Master_Stop();
-//        __delay_ms(200);
-        
-        //Request data to slave
-        I2C_Master_Start();         //Start I2C
-        I2C_Master_Write(0x51);     //Select slave 0b0101_000x
-        PORTA = I2C_Master_Read(0);
-        I2C_Master_Stop();
-        __delay_ms(200);
+        readPICslave();//Request data to slave PIC
+        __delay_ms(200);    
+        readRTCslave();//Request data to RTC
+        __delay_ms(200);    
     }
 }
 /*-------------------------------- SUBROUTINES -------------------------------*/
@@ -71,8 +64,11 @@ void setup(void){
     ANSEL = 0;
     ANSELH= 0;
     
-    TRISA = 0;  //I2C Read
+    TRISA = 0;  //I2C slave PIC Read
     PORTA = 0;
+    
+    TRISB = 0;  //I2C RTC Read
+    PORTB = 0;
     
     //OSCILLATOR CONFIG
     OSCCONbits.IRCF = 0b111;  //Internal clock frequency 8MHz
@@ -80,4 +76,21 @@ void setup(void){
     
     //Initialize I2C
     I2C_Master_Init(100000);
+}
+
+void readPICslave(void){    
+        I2C_Master_Start();         //Start I2C
+        I2C_Master_Write(0x51);     //Select slave 0b0101_000x
+        PORTA = I2C_Master_Read(0);
+        I2C_Master_Stop();
+}
+
+void readRTCslave(void){
+        I2C_Master_Start();             //Start I2C
+        I2C_Master_Write(0b11010000);   //Write address to RTC DS3231
+        I2C_Master_Write(0x00);         //Set register pointer to seconds
+        I2C_Master_RepeatedStart();     //Repeated start 
+        I2C_Master_Write(0b11010001);   //Read from RTC
+        PORTB = I2C_Master_Read(0);
+        I2C_Master_Stop();
 }

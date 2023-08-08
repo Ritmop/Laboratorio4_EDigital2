@@ -2692,6 +2692,8 @@ void I2C_Slave_Init(uint8_t address);
 
 
 void setup(void);
+void readPICslave(void);
+void readRTCslave(void);
 
 
 
@@ -2706,11 +2708,10 @@ void __attribute__((picinterrupt(("")))) isr(void){
 int main(void) {
     setup();
     while(1){
-# 62 "Lab4_Master.c"
-        I2C_Master_Start();
-        I2C_Master_Write(0x51);
-        PORTA = I2C_Master_Read(0);
-        I2C_Master_Stop();
+
+        readPICslave();
+        _delay((unsigned long)((200)*(8000000/4000.0)));
+        readRTCslave();
         _delay((unsigned long)((200)*(8000000/4000.0)));
     }
 }
@@ -2722,10 +2723,30 @@ void setup(void){
     TRISA = 0;
     PORTA = 0;
 
+    TRISB = 0;
+    PORTB = 0;
+
 
     OSCCONbits.IRCF = 0b111;
     SCS = 1;
 
 
     I2C_Master_Init(100000);
+}
+
+void readPICslave(void){
+        I2C_Master_Start();
+        I2C_Master_Write(0x51);
+        PORTA = I2C_Master_Read(0);
+        I2C_Master_Stop();
+}
+
+void readRTCslave(void){
+        I2C_Master_Start();
+        I2C_Master_Write(0b11010000);
+        I2C_Master_Write(0x00);
+        I2C_Master_RepeatedStart();
+        I2C_Master_Write(0b11010001);
+        PORTB = I2C_Master_Read(0);
+        I2C_Master_Stop();
 }

@@ -24,6 +24,7 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>.</Elem>
+    <Elem>../../../LibreriasPIC</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

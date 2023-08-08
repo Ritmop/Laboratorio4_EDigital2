@@ -10,6 +10,7 @@
             <make-dep-projects/>
             <sourceRootList>
                 <sourceRootElem>.</sourceRootElem>
+                <sourceRootElem>../../../LibreriasPIC</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

@@ -3,26 +3,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [t T1 __interrupt ]
 [p mainexit ]
 "38 Lab4_Master.c
+[; ;Lab4_Master.c: 38: 
 [v _setup `(v ~T0 @X0 0 ef ]
-"41 ./I2C.h
-[; ;./I2C.h: 41: void I2C_Master_Start(void);
-[v _I2C_Master_Start `(v ~T0 @X0 0 ef ]
-"55
-[; ;./I2C.h: 55: void I2C_Master_Write(unsigned d);
-[v _I2C_Master_Write `(v ~T0 @X0 0 ef1`ui ]
-"166 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 166: extern volatile unsigned char PORTA __attribute__((address(0x005)));
-[v _PORTA `Vuc ~T0 @X0 0 e@5 ]
-"60 ./I2C.h
-[; ;./I2C.h: 60: unsigned short I2C_Master_Read(unsigned short a);
-[v _I2C_Master_Read `(us ~T0 @X0 0 ef1`us ]
-"49
-[; ;./I2C.h: 49: void I2C_Master_Stop(void);
-[v _I2C_Master_Stop `(v ~T0 @X0 0 ef ]
+"39
+[; ;Lab4_Master.c: 39:     OSCCONbits.IRCF = 0b111;
+[v _readPICslave `(v ~T0 @X0 0 ef ]
 [v F36 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\builtins.h
 [v __delay `JF36 ~T0 @X0 0 e ]
 [p i __delay ]
+"40 Lab4_Master.c
+[; ;Lab4_Master.c: 40:     SCS = 1;
+[v _readRTCslave `(v ~T0 @X0 0 ef ]
 "3387 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
 [v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
@@ -32,6 +24,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1416
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 1416: extern volatile unsigned char TRISA __attribute__((address(0x085)));
 [v _TRISA `Vuc ~T0 @X0 0 e@133 ]
+"166
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 166: extern volatile unsigned char PORTA __attribute__((address(0x005)));
+[v _PORTA `Vuc ~T0 @X0 0 e@5 ]
+"1478
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 1478: extern volatile unsigned char TRISB __attribute__((address(0x086)));
+[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"228
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 "1868
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 1868:     struct {
 [s S70 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
@@ -53,6 +54,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29 ./I2C.h
 [; ;./I2C.h: 29: void I2C_Master_Init(const unsigned long c);
 [v _I2C_Master_Init `(v ~T0 @X0 0 ef1`Cul ]
+"41
+[; ;./I2C.h: 41: void I2C_Master_Start(void);
+[v _I2C_Master_Start `(v ~T0 @X0 0 ef ]
+"55
+[; ;./I2C.h: 55: void I2C_Master_Write(unsigned d);
+[v _I2C_Master_Write `(v ~T0 @X0 0 ef1`ui ]
+"60
+[; ;./I2C.h: 60: unsigned short I2C_Master_Read(unsigned short a);
+[v _I2C_Master_Read `(us ~T0 @X0 0 ef1`us ]
+"49
+[; ;./I2C.h: 49: void I2C_Master_Stop(void);
+[v _I2C_Master_Stop `(v ~T0 @X0 0 ef ]
+"45
+[; ;./I2C.h: 45: void I2C_Master_RepeatedStart(void);
+[v _I2C_Master_RepeatedStart `(v ~T0 @X0 0 ef ]
 "54 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -288,102 +304,149 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "20 Lab4_Master.c
+[; ;Lab4_Master.c: 20: 
 [p x FOSC  =  INTRC_NOCLKOUT ]
 "21
+[; ;Lab4_Master.c: 21:         readPICslave();
 [p x WDTE  =  OFF        ]
 "22
+[; ;Lab4_Master.c: 22:         _delay((unsigned long)((200)*(8000000/4000.0)));
 [p x PWRTE  =  OFF       ]
 "23
+[; ;Lab4_Master.c: 23:         readRTCslave();
 [p x MCLRE  =  OFF       ]
 "24
+[; ;Lab4_Master.c: 24:         _delay((unsigned long)((200)*(8000000/4000.0)));
 [p x CP  =  OFF          ]
 "25
+[; ;Lab4_Master.c: 25:     }
 [p x CPD  =  OFF         ]
 "26
+[; ;Lab4_Master.c: 26: }
 [p x BOREN  =  OFF       ]
 "27
+[; ;Lab4_Master.c: 27: 
 [p x IESO  =  OFF        ]
 "28
+[; ;Lab4_Master.c: 28: void setup(void){
 [p x FCMEN  =  OFF       ]
 "29
+[; ;Lab4_Master.c: 29:     ANSEL = 0;
 [p x LVP  =  OFF          ]
 "32
+[; ;Lab4_Master.c: 32:     TRISA = 0;
 [p x BOR4V  =  BOR40V    ]
 "33
+[; ;Lab4_Master.c: 33:     PORTA = 0;
 [p x WRT  =  OFF         ]
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"42
+"44
+[; ;Lab4_Master.c: 44: }
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"43
+"45
+[; ;Lab4_Master.c: 45: 
 [e :UE 138 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"50
+"52
+[; ;Lab4_Master.c: 52: 
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"51
+"53
+[; ;Lab4_Master.c: 53: void readRTCslave(void){
 [e ( _setup ..  ]
-"52
+"54
+[; ;Lab4_Master.c: 54:         I2C_Master_Start();
 [e :U 141 ]
 {
-"62
-[; ;Lab4_Master.c: 62:         I2C_Master_Start();
-[e ( _I2C_Master_Start ..  ]
-"63
-[; ;Lab4_Master.c: 63:         I2C_Master_Write(0x51);
-[e ( _I2C_Master_Write (1 -> -> 81 `i `ui ]
-"64
-[; ;Lab4_Master.c: 64:         PORTA = I2C_Master_Read(0);
-[e = _PORTA -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
-"65
-[; ;Lab4_Master.c: 65:         I2C_Master_Stop();
-[e ( _I2C_Master_Stop ..  ]
-"66
-[; ;Lab4_Master.c: 66:         _delay((unsigned long)((200)*(8000000/4000.0)));
+"56
+[; ;Lab4_Master.c: 56:         I2C_Master_Write(0x00);
+[e ( _readPICslave ..  ]
+"57
+[; ;Lab4_Master.c: 57:         I2C_Master_RepeatedStart();
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"67
-[; ;Lab4_Master.c: 67:     }
+"58
+[; ;Lab4_Master.c: 58:         I2C_Master_Write(0b11010001);
+[e ( _readRTCslave ..  ]
+"59
+[; ;Lab4_Master.c: 59:         PORTB = I2C_Master_Read(0);
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"60
+[; ;Lab4_Master.c: 60:         I2C_Master_Stop();
 }
 [e :U 140 ]
 [e $U 141  ]
 [e :U 142 ]
-"68
-[; ;Lab4_Master.c: 68: }
+"61
+[; ;Lab4_Master.c: 61: }
 [e :UE 139 ]
 }
-"70
-[; ;Lab4_Master.c: 70: void setup(void){
+"63
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"71
-[; ;Lab4_Master.c: 71:     ANSEL = 0;
+"64
 [e = _ANSEL -> -> 0 `i `uc ]
-"72
-[; ;Lab4_Master.c: 72:     ANSELH= 0;
+"65
 [e = _ANSELH -> -> 0 `i `uc ]
-"74
-[; ;Lab4_Master.c: 74:     TRISA = 0;
+"67
 [e = _TRISA -> -> 0 `i `uc ]
-"75
-[; ;Lab4_Master.c: 75:     PORTA = 0;
+"68
 [e = _PORTA -> -> 0 `i `uc ]
-"78
-[; ;Lab4_Master.c: 78:     OSCCONbits.IRCF = 0b111;
+"70
+[e = _TRISB -> -> 0 `i `uc ]
+"71
+[e = _PORTB -> -> 0 `i `uc ]
+"74
 [e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
-"79
-[; ;Lab4_Master.c: 79:     SCS = 1;
+"75
 [e = _SCS -> -> 1 `i `b ]
-"82
-[; ;Lab4_Master.c: 82:     I2C_Master_Init(100000);
+"78
 [e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
-"83
-[; ;Lab4_Master.c: 83: }
+"79
 [e :UE 143 ]
+}
+"81
+[v _readPICslave `(v ~T0 @X0 1 ef ]
+{
+[e :U _readPICslave ]
+[f ]
+"82
+[e ( _I2C_Master_Start ..  ]
+"83
+[e ( _I2C_Master_Write (1 -> -> 81 `i `ui ]
+"84
+[e = _PORTA -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"85
+[e ( _I2C_Master_Stop ..  ]
+"86
+[e :UE 144 ]
+}
+"88
+[v _readRTCslave `(v ~T0 @X0 1 ef ]
+{
+[e :U _readRTCslave ]
+[f ]
+"89
+[e ( _I2C_Master_Start ..  ]
+"90
+[e ( _I2C_Master_Write (1 -> -> 208 `i `ui ]
+"91
+[e ( _I2C_Master_Write (1 -> -> 0 `i `ui ]
+"92
+[e ( _I2C_Master_RepeatedStart ..  ]
+"93
+[e ( _I2C_Master_Write (1 -> -> 209 `i `ui ]
+"94
+[e = _PORTB -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"95
+[e ( _I2C_Master_Stop ..  ]
+"96
+[e :UE 145 ]
 }
