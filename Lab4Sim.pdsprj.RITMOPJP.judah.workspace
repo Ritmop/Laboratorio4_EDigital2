@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <WORKSPACE>
  <FRAME activewindow="0">
-  <PLACEMENT>2c0000000200000003000000ffffffffffffffffffffffffffffffff6400000009000000f2040000f7020000</PLACEMENT>
+  <PLACEMENT>2c00000002000000030000000083ffff0083ffffffffffffffffffff6400000009000000f2040000f7020000</PLACEMENT>
   <WINDOW type="default" module="ISIS"/>
  </FRAME>
  <MODULE name="VSMDEBUG">
   <PWI>
-   <POPUP w="800" x="548" flags="00008003" y="58" h="200" pid="0" iid="-1">
+   <POPUP w="800" x="540" flags="00000002" y="230" h="200" pid="0" iid="-1">
     <PROPERTIES>
      <ITEM name="Message Column Width">663</ITEM>
      <ITEM name="ShowGrid">No</ITEM>
@@ -114,7 +114,7 @@
    <POPUP w="114" x="118" flags="00000008" y="209" h="127" pid="7" iid="3">
     <PROPERTIES/>
    </POPUP>
-   <POPUP w="8" x="138" flags="80000002" y="229" h="8" pid="8" iid="3">
+   <POPUP w="8" x="138" flags="00000002" y="229" h="8" pid="8" iid="3">
     <PROPERTIES>
      <ITEM name="DataType">2</ITEM>
      <ITEM name="DispChars">Yes</ITEM>
@@ -124,7 +124,7 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="450" x="871" flags="00000023" y="458" h="250" pid="0" iid="6">
+   <POPUP w="562" x="624" flags="00008023" y="181" h="250" pid="0" iid="6">
     <PROPERTIES>
      <ITEM name="ComboBox1000">S</ITEM>
      <ITEM name="ComboBox1001">Sr</ITEM>
@@ -137,7 +137,20 @@
      <ITEM name="ComboBox1008">A</ITEM>
      <ITEM name="ComboBox1009">N</ITEM>
      <ITEM name="HSplitter1Pos">100</ITEM>
-     <ITEM name="VSplitter1Pos">238</ITEM>
+     <ITEM name="VSplitter1Pos">138</ITEM>
+    </PROPERTIES>
+   </POPUP>
+   <POPUP w="156" x="38" flags="00000001" y="129" h="72" pid="1" iid="7">
+    <PROPERTIES/>
+   </POPUP>
+   <POPUP w="8" x="58" flags="00000008" y="149" h="32" pid="2" iid="7">
+    <PROPERTIES>
+     <ITEM name="DataType">2</ITEM>
+     <ITEM name="DispChars">Yes</ITEM>
+     <ITEM name="DispFormat">2</ITEM>
+     <ITEM name="ShowChanges">Yes</ITEM>
+     <ITEM name="ShowToolTips">Yes</ITEM>
+     <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
   </PWI>

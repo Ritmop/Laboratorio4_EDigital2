@@ -3,6 +3,18 @@
 [d edition pro ]
 [d chip 16F887 ]
 [d frameptr 0 ]
+"13 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios/LibreriasPIC/LCD4b.c
+[v _Lcd_Port Lcd_Port `(v  1 e 1 0 ]
+"35
+[v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
+"48
+[v _Lcd_Set_Cursor Lcd_Set_Cursor `(v  1 e 1 0 ]
+"65
+[v _Lcd_Init Lcd_Init `(v  1 e 1 0 ]
+"83
+[v _Lcd_Write_Char Lcd_Write_Char `(v  1 e 1 0 ]
+"98
+[v _Lcd_Write_String Lcd_Write_String `(v  1 e 1 0 ]
 "5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\sprcadd.c
@@ -27,20 +39,36 @@
 [v _I2C_Master_Write I2C_Master_Write `(v  1 e 1 0 ]
 "74
 [v _I2C_Master_Read I2C_Master_Read `(us  1 e 2 0 ]
-"44 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio4_EDigital2\Lab4_Master.X\Lab4_Master.c
+"49 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio4_EDigital2\Lab4_Master.X\Lab4_Master.c
 [v _isr isr `II(v  1 e 1 0 ]
-"52
+"57
 [v _main main `(i  1 e 2 0 ]
-"63
+"69
 [v _setup setup `(v  1 e 1 0 ]
-"81
+"93
 [v _readPICslave readPICslave `(v  1 e 1 0 ]
-"88
+"100
 [v _readRTCslave readRTCslave `(v  1 e 1 0 ]
+"132
+[v _printLCD printLCD `(v  1 e 1 0 ]
 "166 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
 "228
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"352
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+[s S236 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"369
+[u S245 . 1 `S236 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES245  1 e 1 @8 ]
 "843
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "850
@@ -49,7 +77,7 @@
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1478
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
-[s S122 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S153 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -59,25 +87,27 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1557
-[u S131 . 1 `S122 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES131  1 e 1 @135 ]
-[s S46 . 1 `uc 1 SCS 1 0 :1:0 
+[u S162 . 1 `S153 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES162  1 e 1 @135 ]
+"1602
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+[s S52 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 ]
 "1882
-[s S52 . 1 `uc 1 . 1 0 :4:0 
+[s S58 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S57 . 1 `S46 1 . 1 0 `S52 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES57  1 e 1 @143 ]
+[u S63 . 1 `S52 1 . 1 0 `S58 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES63  1 e 1 @143 ]
 "1979
 [v _SSPCON2 SSPCON2 `VEuc  1 e 1 @145 ]
-[s S143 . 1 `uc 1 SEN 1 0 :1:0 
+[s S174 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -87,8 +117,8 @@
 `uc 1 GCEN 1 0 :1:7 
 ]
 "1996
-[u S152 . 1 `S143 1 . 1 0 ]
-[v _SSPCON2bits SSPCON2bits `VES152  1 e 1 @145 ]
+[u S183 . 1 `S174 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES183  1 e 1 @145 ]
 "2048
 [v _SSPADD SSPADD `VEuc  1 e 1 @147 ]
 "2177
@@ -101,6 +131,16 @@
 [v _GIE GIE `VEb  1 e 0 @95 ]
 "4044
 [v _PEIE PEIE `VEb  1 e 0 @94 ]
+"4194
+[v _RD3 RD3 `VEb  1 e 0 @67 ]
+"4197
+[v _RD4 RD4 `VEb  1 e 0 @68 ]
+"4200
+[v _RD5 RD5 `VEb  1 e 0 @69 ]
+"4203
+[v _RD6 RD6 `VEb  1 e 0 @70 ]
+"4206
+[v _RD7 RD7 `VEb  1 e 0 @71 ]
 "4251
 [v _SCS SCS `VEb  1 e 0 @1144 ]
 "4278
@@ -111,48 +151,59 @@
 [v _TRISC3 TRISC3 `VEb  1 e 0 @1083 ]
 "4464
 [v _TRISC4 TRISC4 `VEb  1 e 0 @1084 ]
-"52 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio4_EDigital2\Lab4_Master.X\Lab4_Master.c
+"38 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio4_EDigital2\Lab4_Master.X\Lab4_Master.c
+[v _segundos segundos `uc  1 e 1 0 ]
+"39
+[v _minutos minutos `uc  1 e 1 0 ]
+"40
+[v _horas horas `uc  1 e 1 0 ]
+"57
 [v _main main `(i  1 e 2 0 ]
 {
-"61
+"67
 } 0
-"63
+"69
 [v _setup setup `(v  1 e 1 0 ]
 {
-"79
+"91
+} 0
+"65 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios/LibreriasPIC/LCD4b.c
+[v _Lcd_Init Lcd_Init `(v  1 e 1 0 ]
+{
+"81
 } 0
 "16 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio4_EDigital2\Lab4_Master.X\I2C.c
 [v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
 {
-[v I2C_Master_Init@c c `DCul  1 p 4 5 ]
+[v I2C_Master_Init@c c `DCul  1 p 4 6 ]
 "24
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
 {
 "10
-[v ___lldiv@quotient quotient `ul  1 a 4 0 ]
+[v ___lldiv@quotient quotient `ul  1 a 4 1 ]
 "11
-[v ___lldiv@counter counter `uc  1 a 1 4 ]
+[v ___lldiv@counter counter `uc  1 a 1 5 ]
 "5
 [v ___lldiv@divisor divisor `ul  1 p 4 2 ]
 [v ___lldiv@dividend dividend `ul  1 p 4 6 ]
 "30
 } 0
-"88 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio4_EDigital2\Lab4_Master.X\Lab4_Master.c
+"100 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio4_EDigital2\Lab4_Master.X\Lab4_Master.c
 [v _readRTCslave readRTCslave `(v  1 e 1 0 ]
 {
-"96
+"130
 } 0
 "47 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio4_EDigital2\Lab4_Master.X\I2C.c
 [v _I2C_Master_RepeatedStart I2C_Master_RepeatedStart `(v  1 e 1 0 ]
 {
 "51
 } 0
-"81 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio4_EDigital2\Lab4_Master.X\Lab4_Master.c
+"93 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio4_EDigital2\Lab4_Master.X\Lab4_Master.c
 [v _readPICslave readPICslave `(v  1 e 1 0 ]
 {
-"86
+"98
 } 0
 "65 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio4_EDigital2\Lab4_Master.X\I2C.c
 [v _I2C_Master_Write I2C_Master_Write `(v  1 e 1 0 ]
@@ -184,8 +235,69 @@
 {
 "35
 } 0
-"44 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio4_EDigital2\Lab4_Master.X\Lab4_Master.c
+"132 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio4_EDigital2\Lab4_Master.X\Lab4_Master.c
+[v _printLCD printLCD `(v  1 e 1 0 ]
+{
+"145
+} 0
+"98 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios/LibreriasPIC/LCD4b.c
+[v _Lcd_Write_String Lcd_Write_String `(v  1 e 1 0 ]
+{
+[v Lcd_Write_String@a a `*.24uc  1 a 1 wreg ]
+"99
+[v Lcd_Write_String@i i `i  1 a 2 8 ]
+"98
+[v Lcd_Write_String@a a `*.24uc  1 a 1 wreg ]
+"100
+[v Lcd_Write_String@a a `*.24uc  1 a 1 7 ]
+"102
+} 0
+"83
+[v _Lcd_Write_Char Lcd_Write_Char `(v  1 e 1 0 ]
+{
+[v Lcd_Write_Char@a a `uc  1 a 1 wreg ]
+"84
+[v Lcd_Write_Char@y y `uc  1 a 1 5 ]
+[v Lcd_Write_Char@temp temp `uc  1 a 1 4 ]
+"83
+[v Lcd_Write_Char@a a `uc  1 a 1 wreg ]
+"85
+[v Lcd_Write_Char@a a `uc  1 a 1 6 ]
+"96
+} 0
+"48
+[v _Lcd_Set_Cursor Lcd_Set_Cursor `(v  1 e 1 0 ]
+{
+[v Lcd_Set_Cursor@a a `uc  1 a 1 wreg ]
+"49
+[v Lcd_Set_Cursor@temp temp `uc  1 a 1 3 ]
+[v Lcd_Set_Cursor@y y `uc  1 a 1 2 ]
+[v Lcd_Set_Cursor@z z `uc  1 a 1 1 ]
+"48
+[v Lcd_Set_Cursor@a a `uc  1 a 1 wreg ]
+[v Lcd_Set_Cursor@b b `uc  1 p 1 6 ]
+"50
+[v Lcd_Set_Cursor@a a `uc  1 a 1 0 ]
+"63
+} 0
+"35
+[v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
+{
+[v Lcd_Cmd@a a `uc  1 a 1 wreg ]
+[v Lcd_Cmd@a a `uc  1 a 1 wreg ]
+[v Lcd_Cmd@a a `uc  1 a 1 5 ]
+"41
+} 0
+"13
+[v _Lcd_Port Lcd_Port `(v  1 e 1 0 ]
+{
+[v Lcd_Port@a a `uc  1 a 1 wreg ]
+[v Lcd_Port@a a `uc  1 a 1 wreg ]
+[v Lcd_Port@a a `uc  1 a 1 2 ]
+"33
+} 0
+"49 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio4_EDigital2\Lab4_Master.X\Lab4_Master.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"45
+"50
 } 0

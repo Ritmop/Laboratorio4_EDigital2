@@ -1,4 +1,4 @@
-# 1 "Lab4_Master.c"
+# 1 "../../../LibreriasPIC/LCD4b.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,10 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "Lab4_Master.c" 2
-# 15 "Lab4_Master.c"
+# 1 "../../../LibreriasPIC/LCD4b.c" 2
+# 11 "../../../LibreriasPIC/LCD4b.c"
+# 1 "../../../LibreriasPIC/LCD4b.h" 1
+# 42 "../../../LibreriasPIC/LCD4b.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2625,53 +2627,12 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 2 3
-# 15 "Lab4_Master.c" 2
-
-# 1 "./I2C.h" 1
-# 20 "./I2C.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdint.h" 1 3
-# 20 "./I2C.h" 2
-# 29 "./I2C.h"
-void I2C_Master_Init(const unsigned long c);
+# 42 "../../../LibreriasPIC/LCD4b.h" 2
 
 
 
 
 
-
-
-void I2C_Master_Wait(void);
-
-
-
-void I2C_Master_Start(void);
-
-
-
-void I2C_Master_RepeatedStart(void);
-
-
-
-void I2C_Master_Stop(void);
-
-
-
-
-
-void I2C_Master_Write(unsigned d);
-
-
-
-
-unsigned short I2C_Master_Read(unsigned short a);
-
-
-
-void I2C_Slave_Init(uint8_t address);
-# 16 "Lab4_Master.c" 2
-
-# 1 "./LCD4b.h" 1
-# 47 "./LCD4b.h"
 void Lcd_Port(char a);
 
 void Lcd_Cmd(char a);
@@ -2689,133 +2650,106 @@ void Lcd_Write_String(char *a);
 void Lcd_Shift_Right(void);
 
 void Lcd_Shift_Left(void);
-# 17 "Lab4_Master.c" 2
+# 11 "../../../LibreriasPIC/LCD4b.c" 2
 
 
+void Lcd_Port(char a) {
+    if (a & 1)
+        RD4 = 1;
+    else
+        RD4 = 0;
 
+    if (a & 2)
+        RD5 = 1;
+    else
+        RD5 = 0;
 
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
+    if (a & 4)
+        RD6 = 1;
+    else
+        RD6 = 0;
 
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-
-
-
-uint8_t segundos;
-uint8_t minutos;
-uint8_t horas;
-
-void setup(void);
-void readPICslave(void);
-void readRTCslave(void);
-void printLCD(void);
-
-
-
-void __attribute__((picinterrupt(("")))) isr(void){
+    if (a & 8)
+        RD7 = 1;
+    else
+        RD7 = 0;
 }
 
+void Lcd_Cmd(char a) {
+    PORTDbits.RD2 = 0;
+    Lcd_Port(a);
+    RD3 = 1;
+    _delay((unsigned long)((4)*(8000000/4000.0)));
+    RD3 = 0;
+}
 
+void Lcd_Clear(void) {
+    Lcd_Cmd(0);
+    Lcd_Cmd(1);
+}
 
-
-
-
-int main(void) {
-    setup();
-    while(1){
-
-        readPICslave();
-        _delay((unsigned long)((10)*(8000000/4000.0)));
-        readRTCslave();
-        _delay((unsigned long)((10)*(8000000/4000.0)));
-        printLCD();
+void Lcd_Set_Cursor(char a, char b) {
+    char temp, z, y;
+    if (a == 1) {
+        temp = 0x80 + b - 1;
+        z = temp >> 4;
+        y = temp & 0x0F;
+        Lcd_Cmd(z);
+        Lcd_Cmd(y);
+    } else if (a == 2) {
+        temp = 0xC0 + b - 1;
+        z = temp >> 4;
+        y = temp & 0x0F;
+        Lcd_Cmd(z);
+        Lcd_Cmd(y);
     }
 }
 
-void setup(void){
-    ANSEL = 0;
-    ANSELH= 0;
+void Lcd_Init(void) {
+    Lcd_Port(0x00);
+    _delay((unsigned long)((20)*(8000000/4000.0)));
+    Lcd_Cmd(0x03);
+    _delay((unsigned long)((5)*(8000000/4000.0)));
+    Lcd_Cmd(0x03);
+    _delay((unsigned long)((11)*(8000000/4000.0)));
+    Lcd_Cmd(0x03);
 
-    TRISA = 0;
-    PORTA = 0;
-
-    TRISB = 0;
-    PORTB = 0;
-
-    TRISD = 0;
-    PORTD = 0;
-
-
-    OSCCONbits.IRCF = 0b111;
-    SCS = 1;
-
-
-    I2C_Master_Init(100000);
-
-
-    Lcd_Init();
+    Lcd_Cmd(0x02);
+    Lcd_Cmd(0x02);
+    Lcd_Cmd(0x08);
+    Lcd_Cmd(0x00);
+    Lcd_Cmd(0x0C);
+    Lcd_Cmd(0x00);
+    Lcd_Cmd(0x06);
 }
 
-void readPICslave(void){
-        I2C_Master_Start();
-        I2C_Master_Write(0x51);
-        PORTA = I2C_Master_Read(0);
-        I2C_Master_Stop();
+void Lcd_Write_Char(char a) {
+    char temp, y;
+    temp = a & 0x0F;
+    y = a & 0xF0;
+    PORTDbits.RD2 = 1;
+    Lcd_Port(y >> 4);
+    RD3 = 1;
+    _delay((unsigned long)((40)*(8000000/4000000.0)));
+    RD3 = 0;
+    Lcd_Port(temp);
+    RD3 = 1;
+    _delay((unsigned long)((40)*(8000000/4000000.0)));
+    RD3 = 0;
 }
 
-void readRTCslave(void){
-
-        I2C_Master_Start();
-        I2C_Master_Write(0b11010000);
-        I2C_Master_Write(0x00);
-        I2C_Master_RepeatedStart();
-        I2C_Master_Write(0b11010001);
-        segundos = I2C_Master_Read(0);
-        I2C_Master_Stop();
-        _delay((unsigned long)((5)*(8000000/4000.0)));
-
-
-        I2C_Master_Start();
-        I2C_Master_Write(0b11010000);
-        I2C_Master_Write(0x01);
-        I2C_Master_RepeatedStart();
-        I2C_Master_Write(0b11010001);
-        minutos = I2C_Master_Read(0);
-        I2C_Master_Stop();
-        _delay((unsigned long)((5)*(8000000/4000.0)));
-
-
-        I2C_Master_Start();
-        I2C_Master_Write(0b11010000);
-        I2C_Master_Write(0x02);
-        I2C_Master_RepeatedStart();
-        I2C_Master_Write(0b11010001);
-        horas = I2C_Master_Read(0);
-        I2C_Master_Stop();
-        _delay((unsigned long)((5)*(8000000/4000.0)));
+void Lcd_Write_String(char *a) {
+    int i;
+    for (i = 0; a[i] != '\0'; i++)
+        Lcd_Write_Char(a[i]);
 }
 
-void printLCD(void){
+void Lcd_Shift_Right(void) {
+    Lcd_Cmd(0x01);
+    Lcd_Cmd(0x0C);
+}
 
-    Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("Time");
-    Lcd_Set_Cursor(2,1);
-    Lcd_Write_Char((horas>>4 & 0x0F) + 0x30);
-    Lcd_Write_Char((horas & 0x0F) + 0x30);
-    Lcd_Write_Char(':');
-    Lcd_Write_Char((minutos>>4 & 0x0F) + 0x30);
-    Lcd_Write_Char((minutos & 0x0F) + 0x30);
-    Lcd_Write_Char(':');
-    Lcd_Write_Char((segundos>>4 & 0x0F) + 0x30);
-    Lcd_Write_Char((segundos & 0x0F) + 0x30);
+void Lcd_Shift_Left(void) {
+    Lcd_Cmd(0x01);
+    Lcd_Cmd(0x08);
 }

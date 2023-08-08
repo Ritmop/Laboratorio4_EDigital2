@@ -15,6 +15,8 @@
       <itemPath>Lab4_Master.c</itemPath>
       <itemPath>I2C.c</itemPath>
       <itemPath>I2C.h</itemPath>
+      <itemPath>../../../LibreriasPIC/LCD4b.c</itemPath>
+      <itemPath>../../../LibreriasPIC/LCD4b.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
