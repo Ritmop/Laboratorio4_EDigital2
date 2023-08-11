@@ -36,9 +36,10 @@
 /*----------------------- GLOBAL VARIABLES & CONSTANTS -----------------------*/
 #define _XTAL_FREQ 8000000
 uint8_t discard;
-uint8_t dato;
+uint8_t temperatura;
 /*-------------------------------- PROTOTYPES --------------------------------*/
 void setup(void);
+uint8_t map(uint8_t val, uint8_t min1, uint8_t max1, uint8_t min2, uint8_t max2);
 /*------------------------------- RESET VECTOR -------------------------------*/
 
 /*----------------------------- INTERRUPT VECTOR -----------------------------*/
@@ -67,7 +68,7 @@ void __interrupt() isr(void){
         }else if(!D_nA && R_nW){ //Received an Address and Read
             discard = SSPBUF;   // Discard address by reading the buffer
             BF = 0;
-            SSPBUF = PORTB;     //Load data to buffer
+            SSPBUF = temperatura;     //Load data to buffer
             CKP = 1;
             __delay_us(250);
             while(BF);          //Wait until buffer is cleared
@@ -88,21 +89,15 @@ int main(void) {
         //Loop
         //Capture pot val
         __delay_ms(5);
-        PORTB = adc_read()>>8;
+        temperatura = map(adc_read()>>8,0,255,0,70);
     }
 }
 /*-------------------------------- SUBROUTINES -------------------------------*/
 void setup(void){
-    TRISA = 0b00100001;  //RA0 as input
+    TRISA = 255;  //RA0 as input
     PORTA = 0;
     ANSEL = 1;  //AN0 - RA0 as analog
     ANSELH= 0;
-    
-    TRISB = 0;  //POT val
-    PORTB = 0;
-    TRISD = 0;  //I2C
-    PORTD = 0;
-    
     
     //OSCILLATOR CONFIG
     OSCCONbits.IRCF = 0b111;  //Internal clock frequency 8MHz
@@ -112,4 +107,8 @@ void setup(void){
     adc_init(0, 0, 8, 0);
     //Initialize I2C with address 0b0101_000x
     I2C_Slave_Init(0x50);   
+}
+
+uint8_t map(uint8_t val, uint8_t min1, uint8_t max1, uint8_t min2, uint8_t max2){
+    return ((val-min1)*(max2-min2)/(max1-min1))+min2;
 }

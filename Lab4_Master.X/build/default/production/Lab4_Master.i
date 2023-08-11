@@ -2691,6 +2691,10 @@ void Lcd_Shift_Right(void);
 void Lcd_Shift_Left(void);
 # 17 "Lab4_Master.c" 2
 
+# 1 "./iocb_init.h" 1
+# 13 "./iocb_init.h"
+void iocb_init(uint8_t);
+# 18 "Lab4_Master.c" 2
 
 
 
@@ -2711,18 +2715,82 @@ void Lcd_Shift_Left(void);
 
 
 
+uint8_t temperatura;
+char temp_s[] = {0,0,'\0'};
 uint8_t segundos;
 uint8_t minutos;
 uint8_t horas;
+uint8_t dia;
+uint8_t mes;
+uint8_t anio;
+uint8_t selector;
+unsigned setting;
+unsigned sendRTC;
 
 void setup(void);
 void readPICslave(void);
 void readRTCslave(void);
 void printLCD(void);
+void separar_digitos8(uint8_t num, char dig8[]);
+void setTime(void);
 
 
 
 void __attribute__((picinterrupt(("")))) isr(void){
+    if(RBIF){
+        switch(PORTB){
+            case 0b00011110:
+
+                switch(selector){
+                    case 0x00:
+                        segundos++;
+                        break;
+                    case 0x01:
+                        minutos++;
+                        break;
+                    case 0x02:
+                        horas++;
+                        break;
+                    case 0x03:
+                        selector = 0x04;
+                        break;
+                    case 0x04:
+                        dia++;
+                        break;
+                    case 0x05:
+                        mes++;
+                        break;
+                    case 0x06:
+                        anio++;
+                        break;
+                }
+                break;
+            case 0b00011101:
+                selector++;
+                break;
+            case 0b00011011:
+                selector--;
+                break;
+            case 0b00010111:
+                setting = 1;
+                selector = 0;
+
+                segundos = 0x55;
+                minutos = 0x59;
+                horas = 0x23;
+                dia = 0x31;
+                mes = 0x12;
+                anio = 0x22;
+                break;
+            case 0b00001111:
+                sendRTC = setting?1:0;
+                break;
+            default:
+
+                break;
+        }
+        RBIF = 0;
+    }
 }
 
 
@@ -2736,18 +2804,21 @@ int main(void) {
 
         readPICslave();
         _delay((unsigned long)((10)*(8000000/4000.0)));
-        readRTCslave();
+
+        if(setting)
+            setTime();
+        else
+            readRTCslave();
         _delay((unsigned long)((10)*(8000000/4000.0)));
+
         printLCD();
+        _delay((unsigned long)((10)*(8000000/4000.0)));
     }
 }
 
 void setup(void){
     ANSEL = 0;
     ANSELH= 0;
-
-    TRISA = 0;
-    PORTA = 0;
 
     TRISB = 0;
     PORTB = 0;
@@ -2764,12 +2835,15 @@ void setup(void){
 
 
     Lcd_Init();
+
+
+    iocb_init(0x1F);
 }
 
 void readPICslave(void){
         I2C_Master_Start();
         I2C_Master_Write(0x51);
-        PORTA = I2C_Master_Read(0);
+        temperatura = I2C_Master_Read(0);
         I2C_Master_Stop();
 }
 
@@ -2803,13 +2877,41 @@ void readRTCslave(void){
         horas = I2C_Master_Read(0);
         I2C_Master_Stop();
         _delay((unsigned long)((5)*(8000000/4000.0)));
+
+
+        I2C_Master_Start();
+        I2C_Master_Write(0b11010000);
+        I2C_Master_Write(0x04);
+        I2C_Master_RepeatedStart();
+        I2C_Master_Write(0b11010001);
+        dia = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        _delay((unsigned long)((5)*(8000000/4000.0)));
+
+
+        I2C_Master_Start();
+        I2C_Master_Write(0b11010000);
+        I2C_Master_Write(0x05);
+        I2C_Master_RepeatedStart();
+        I2C_Master_Write(0b11010001);
+        mes = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        _delay((unsigned long)((5)*(8000000/4000.0)));
+
+
+        I2C_Master_Start();
+        I2C_Master_Write(0b11010000);
+        I2C_Master_Write(0x06);
+        I2C_Master_RepeatedStart();
+        I2C_Master_Write(0b11010001);
+        anio = I2C_Master_Read(0);
+        I2C_Master_Stop();
+        _delay((unsigned long)((5)*(8000000/4000.0)));
 }
 
 void printLCD(void){
 
     Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("Time");
-    Lcd_Set_Cursor(2,1);
     Lcd_Write_Char((horas>>4 & 0x0F) + 0x30);
     Lcd_Write_Char((horas & 0x0F) + 0x30);
     Lcd_Write_Char(':');
@@ -2818,4 +2920,121 @@ void printLCD(void){
     Lcd_Write_Char(':');
     Lcd_Write_Char((segundos>>4 & 0x0F) + 0x30);
     Lcd_Write_Char((segundos & 0x0F) + 0x30);
+
+
+    Lcd_Set_Cursor(2,1);
+    Lcd_Write_Char((dia>>4 & 0x0F) + 0x30);
+    Lcd_Write_Char((dia & 0x0F) + 0x30);
+    Lcd_Write_Char('/');
+    Lcd_Write_Char((mes>>4 & 0x0F) + 0x30);
+    Lcd_Write_Char((mes & 0x0F) + 0x30);
+    Lcd_Write_Char('/');
+    Lcd_Write_Char((anio>>4 & 0x0F) + 0x30);
+    Lcd_Write_Char((anio & 0x0F) + 0x30);
+
+
+    separar_digitos8(temperatura,temp_s);
+    Lcd_Set_Cursor(1,13);
+    Lcd_Write_String(temp_s);
+    Lcd_Write_String("'C");
+}
+
+void separar_digitos8(uint8_t num, char dig8[]){
+    uint8_t div1,div2,decenas,unidades;
+    div1 = num / 10;
+    unidades = num % 10;
+    div2 = div1 / 10;
+    decenas = div1 % 10;
+
+    dig8[1] = unidades + 0x30;
+    dig8[0] = decenas + 0x30;
+}
+
+void setTime(void){
+
+
+    if(selector == 255)
+        selector = 6;
+    else if (selector > 6)
+        selector = 0;
+
+    if(segundos > 0x59)
+        segundos = 0x00;
+    else if((segundos & 0x0F) > 0x09)
+        segundos = (segundos & 0xF0) + 0x10;
+
+    if(minutos > 0x59)
+        minutos = 0x00;
+    else if((minutos & 0x0F) > 0x09)
+        minutos = (minutos & 0xF0) + 0x10;
+
+    if(horas > 0x23)
+        horas = 0x00;
+    else if((horas & 0x0F) > 0x09)
+        horas = (horas & 0xF0) + 0x10;
+
+
+    if(dia > 0x31)
+        dia = 0x00;
+    else if((dia & 0x0F) > 0x09)
+        dia = (dia & 0xF0) + 0x10;
+
+    if(mes > 0x12)
+        mes = 0x00;
+    else if((mes & 0x0F) > 0x09)
+        mes = (mes & 0xF0) + 0x10;
+
+    if(anio > 0x99)
+        anio = 0x00;
+    else if((anio & 0x0F) > 0x09)
+        anio = (anio & 0xF0) + 0x10;
+
+
+    if (sendRTC){
+
+        I2C_Master_Start();
+        I2C_Master_Write(0b11010000);
+        I2C_Master_Write(0x00);
+        I2C_Master_Write(segundos);
+        I2C_Master_Stop();
+        _delay((unsigned long)((5)*(8000000/4000.0)));
+
+        I2C_Master_Start();
+        I2C_Master_Write(0b11010000);
+        I2C_Master_Write(0x01);
+        I2C_Master_Write(minutos);
+        I2C_Master_Stop();
+        _delay((unsigned long)((5)*(8000000/4000.0)));
+
+        I2C_Master_Start();
+        I2C_Master_Write(0b11010000);
+        I2C_Master_Write(0x02);
+        I2C_Master_Write(horas);
+        I2C_Master_Stop();
+        _delay((unsigned long)((5)*(8000000/4000.0)));
+
+        I2C_Master_Start();
+        I2C_Master_Write(0b11010000);
+        I2C_Master_Write(0x04);
+        I2C_Master_Write(dia);
+        I2C_Master_Stop();
+        _delay((unsigned long)((5)*(8000000/4000.0)));
+
+        I2C_Master_Start();
+        I2C_Master_Write(0b11010000);
+        I2C_Master_Write(0x05);
+        I2C_Master_Write(mes);
+        I2C_Master_Stop();
+        _delay((unsigned long)((5)*(8000000/4000.0)));
+
+        I2C_Master_Start();
+        I2C_Master_Write(0b11010000);
+        I2C_Master_Write(0x06);
+        I2C_Master_Write(anio);
+        I2C_Master_Stop();
+        _delay((unsigned long)((5)*(8000000/4000.0)));
+
+        setting = 0;
+        sendRTC = 0;
+    }
 }

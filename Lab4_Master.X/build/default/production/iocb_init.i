@@ -1,4 +1,4 @@
-# 1 "Lab4_Slave.c"
+# 1 "iocb_init.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,9 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "Lab4_Slave.c" 2
-# 15 "Lab4_Slave.c"
+# 1 "iocb_init.c" 2
+# 1 "./iocb_init.h" 1
+# 11 "./iocb_init.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2625,153 +2626,19 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\\pic\\include\\xc.h" 2 3
-# 15 "Lab4_Slave.c" 2
+# 11 "./iocb_init.h" 2
 
-# 1 "./ADC_lib.h" 1
-# 12 "./ADC_lib.h"
-void adc_init(uint8_t J, uint8_t R, uint8_t clock, uint8_t channel);
-uint16_t adc_read(void);
-void adc_sel_channel(uint8_t channel);
-uint8_t adc_get_channel(void);
-# 16 "Lab4_Slave.c" 2
 
-# 1 "./I2C.h" 1
-# 20 "./I2C.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.41\\pic\\include\\c90\\stdint.h" 1 3
-# 20 "./I2C.h" 2
-# 29 "./I2C.h"
-void I2C_Master_Init(const unsigned long c);
+void iocb_init(uint8_t);
+# 1 "iocb_init.c" 2
 
 
 
-
-
-
-
-void I2C_Master_Wait(void);
-
-
-
-void I2C_Master_Start(void);
-
-
-
-void I2C_Master_RepeatedStart(void);
-
-
-
-void I2C_Master_Stop(void);
-
-
-
-
-
-void I2C_Master_Write(unsigned d);
-
-
-
-
-unsigned short I2C_Master_Read(unsigned short a);
-
-
-
-void I2C_Slave_Init(uint8_t address);
-# 17 "Lab4_Slave.c" 2
-
-
-
-
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-
-
-
-uint8_t discard;
-uint8_t temperatura;
-
-void setup(void);
-uint8_t map(uint8_t val, uint8_t min1, uint8_t max1, uint8_t min2, uint8_t max2);
-
-
-
-void __attribute__((picinterrupt(("")))) isr(void){
-    if(SSPIF){
-
-        CKP = 0;
-
-        if (SSPOV || WCOL ){
-            discard = SSPBUF;
-            SSPOV = 0;
-            WCOL = 0;
-            CKP = 1;
-        }
-
-        if(!D_nA && !R_nW) {
-
-            discard = SSPBUF;
-
-            SSPIF = 0;
-            CKP = 1;
-            while(!BF);
-            PORTD = SSPBUF;
-            _delay((unsigned long)((250)*(8000000/4000000.0)));
-
-        }else if(!D_nA && R_nW){
-            discard = SSPBUF;
-            BF = 0;
-            SSPBUF = temperatura;
-            CKP = 1;
-            _delay((unsigned long)((250)*(8000000/4000000.0)));
-            while(BF);
-        }
-
-        SSPIF = 0;
-    }
-}
-
-
-
-
-
-
-int main(void) {
-    setup();
-    while(1){
-
-
-        _delay((unsigned long)((5)*(8000000/4000.0)));
-        temperatura = map(adc_read()>>8,0,255,0,70);
-    }
-}
-
-void setup(void){
-    TRISA = 255;
-    PORTA = 0;
-    ANSEL = 1;
-    ANSELH= 0;
-
-
-    OSCCONbits.IRCF = 0b111;
-    SCS = 1;
-
-
-    adc_init(0, 0, 8, 0);
-
-    I2C_Slave_Init(0x50);
-}
-
-uint8_t map(uint8_t val, uint8_t min1, uint8_t max1, uint8_t min2, uint8_t max2){
-    return ((val-min1)*(max2-min2)/(max1-min1))+min2;
+void iocb_init(uint8_t pinesB){
+    TRISB |= pinesB;
+    nRBPU = 0;
+    WPUB |= pinesB;
+    RBIE = 1;
+    IOCB |= pinesB;
+    GIE = 1;
 }

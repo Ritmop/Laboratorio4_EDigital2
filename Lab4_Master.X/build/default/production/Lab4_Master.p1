@@ -1,22 +1,31 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [t ~ __interrupt . k ]
 [t T1 __interrupt ]
+"4134 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 4134: extern volatile __bit RBIF __attribute__((address(0x58)));
+[v _RBIF `Vb ~T0 @X0 0 e@88 ]
+"228
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 [p mainexit ]
-"42 Lab4_Master.c
-[; ;Lab4_Master.c: 42: 
+"50 Lab4_Master.c
+[; ;Lab4_Master.c: 50:                 }
 [v _setup `(v ~T0 @X0 0 ef ]
-"43
-[; ;Lab4_Master.c: 43:     TRISD = 0;
+"51
+[; ;Lab4_Master.c: 51:                 break;
 [v _readPICslave `(v ~T0 @X0 0 ef ]
 [v F36 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\builtins.h
 [v __delay `JF36 ~T0 @X0 0 e ]
 [p i __delay ]
-"44 Lab4_Master.c
-[; ;Lab4_Master.c: 44:     PORTD = 0;
+"55 Lab4_Master.c
+[; ;Lab4_Master.c: 55:             case 0b00011011:
+[v _setTime `(v ~T0 @X0 0 ef ]
+"52
+[; ;Lab4_Master.c: 52:             case 0b00011101:
 [v _readRTCslave `(v ~T0 @X0 0 ef ]
-"45
-[; ;Lab4_Master.c: 45: 
+"53
+[; ;Lab4_Master.c: 53:                 selector++;
 [v _printLCD `(v ~T0 @X0 0 ef ]
 "3387 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
@@ -24,18 +33,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3449
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 3449: extern volatile unsigned char ANSELH __attribute__((address(0x189)));
 [v _ANSELH `Vuc ~T0 @X0 0 e@393 ]
-"1416
-[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 1416: extern volatile unsigned char TRISA __attribute__((address(0x085)));
-[v _TRISA `Vuc ~T0 @X0 0 e@133 ]
-"166
-[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 166: extern volatile unsigned char PORTA __attribute__((address(0x005)));
-[v _PORTA `Vuc ~T0 @X0 0 e@5 ]
 "1478
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 1478: extern volatile unsigned char TRISB __attribute__((address(0x086)));
 [v _TRISB `Vuc ~T0 @X0 0 e@134 ]
-"228
-[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
-[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 "1602
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 1602: extern volatile unsigned char TRISD __attribute__((address(0x088)));
 [v _TRISD `Vuc ~T0 @X0 0 e@136 ]
@@ -66,6 +66,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "55 ./LCD4b.h
 [; ;./LCD4b.h: 55: void Lcd_Init(void);
 [v _Lcd_Init `(v ~T0 @X0 0 ef ]
+"13 ./iocb_init.h
+[; ;./iocb_init.h: 13: void iocb_init(uint8_t);
+[v _iocb_init `(v ~T0 @X0 0 ef1`uc ]
 "41 ./I2C.h
 [; ;./I2C.h: 41: void I2C_Master_Start(void);
 [v _I2C_Master_Start `(v ~T0 @X0 0 ef ]
@@ -84,12 +87,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "53 ./LCD4b.h
 [; ;./LCD4b.h: 53: void Lcd_Set_Cursor(char a, char b);
 [v _Lcd_Set_Cursor `(v ~T0 @X0 0 ef2`uc`uc ]
-"59
-[; ;./LCD4b.h: 59: void Lcd_Write_String(char *a);
-[v _Lcd_Write_String `(v ~T0 @X0 0 ef1`*uc ]
 "57
 [; ;./LCD4b.h: 57: void Lcd_Write_Char(char a);
 [v _Lcd_Write_Char `(v ~T0 @X0 0 ef1`uc ]
+"54 Lab4_Master.c
+[; ;Lab4_Master.c: 54:                 break;
+[v _separar_digitos8 `(v ~T0 @X0 0 ef2`uc`*uc ]
+"59 ./LCD4b.h
+[; ;./LCD4b.h: 59: void Lcd_Write_String(char *a);
+[v _Lcd_Write_String `(v ~T0 @X0 0 ef1`*uc ]
 "54 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -325,261 +331,864 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "21 Lab4_Master.c
-[; ;Lab4_Master.c: 21: int main(void) {
+[; ;Lab4_Master.c: 21: 
 [p x FOSC  =  INTRC_NOCLKOUT ]
 "22
-[; ;Lab4_Master.c: 22:     setup();
+[; ;Lab4_Master.c: 22: 
 [p x WDTE  =  OFF        ]
 "23
-[; ;Lab4_Master.c: 23:     while(1){
+[; ;Lab4_Master.c: 23: void __attribute__((picinterrupt(("")))) isr(void){
 [p x PWRTE  =  OFF       ]
 "24
-[; ;Lab4_Master.c: 24: 
+[; ;Lab4_Master.c: 24:     if(RBIF){
 [p x MCLRE  =  OFF       ]
 "25
-[; ;Lab4_Master.c: 25:         readPICslave();
+[; ;Lab4_Master.c: 25:         switch(PORTB){
 [p x CP  =  OFF          ]
 "26
-[; ;Lab4_Master.c: 26:         _delay((unsigned long)((10)*(8000000/4000.0)));
+[; ;Lab4_Master.c: 26:             case 0b00011110:
 [p x CPD  =  OFF         ]
 "27
-[; ;Lab4_Master.c: 27:         readRTCslave();
+[; ;Lab4_Master.c: 27: 
 [p x BOREN  =  OFF       ]
 "28
-[; ;Lab4_Master.c: 28:         _delay((unsigned long)((10)*(8000000/4000.0)));
+[; ;Lab4_Master.c: 28:                 switch(selector){
 [p x IESO  =  OFF        ]
 "29
-[; ;Lab4_Master.c: 29:         printLCD();
+[; ;Lab4_Master.c: 29:                     case 0x00:
 [p x FCMEN  =  OFF       ]
 "30
-[; ;Lab4_Master.c: 30:     }
+[; ;Lab4_Master.c: 30:                         segundos++;
 [p x LVP  =  OFF          ]
 "33
-[; ;Lab4_Master.c: 33: void setup(void){
+[; ;Lab4_Master.c: 33:                         minutos++;
 [p x BOR4V  =  BOR40V    ]
 "34
-[; ;Lab4_Master.c: 34:     ANSEL = 0;
+[; ;Lab4_Master.c: 34:                         break;
 [p x WRT  =  OFF         ]
 "38
-[; ;Lab4_Master.c: 38:     PORTA = 0;
-[v _segundos `uc ~T0 @X0 1 e ]
+[; ;Lab4_Master.c: 38:                     case 0x03:
+[v _temperatura `uc ~T0 @X0 1 e ]
 "39
-[; ;Lab4_Master.c: 39: 
-[v _minutos `uc ~T0 @X0 1 e ]
+[; ;Lab4_Master.c: 39:                         selector = 0x04;
+[v _temp_s `uc ~T0 @X0 -> 3 `i e ]
+[i _temp_s
+:U ..
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `ui `uc
+..
+]
 "40
-[; ;Lab4_Master.c: 40:     TRISB = 0;
+[; ;Lab4_Master.c: 40:                         break;
+[v _segundos `uc ~T0 @X0 1 e ]
+"41
+[; ;Lab4_Master.c: 41:                     case 0x04:
+[v _minutos `uc ~T0 @X0 1 e ]
+"42
+[; ;Lab4_Master.c: 42:                         dia++;
 [v _horas `uc ~T0 @X0 1 e ]
+"43
+[; ;Lab4_Master.c: 43:                         break;
+[v _dia `uc ~T0 @X0 1 e ]
+"44
+[; ;Lab4_Master.c: 44:                     case 0x05:
+[v _mes `uc ~T0 @X0 1 e ]
+"45
+[; ;Lab4_Master.c: 45:                         mes++;
+[v _anio `uc ~T0 @X0 1 e ]
+"46
+[; ;Lab4_Master.c: 46:                         break;
+[v _selector `uc ~T0 @X0 1 e ]
+"47
+[; ;Lab4_Master.c: 47:                     case 0x06:
+[v _setting `ui ~T0 @X0 1 e ]
+"48
+[; ;Lab4_Master.c: 48:                         anio++;
+[v _sendRTC `ui ~T0 @X0 1 e ]
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"49
-[; ;Lab4_Master.c: 49: 
+"59
+[; ;Lab4_Master.c: 59:                 setting = 1;
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"50
-[; ;Lab4_Master.c: 50: 
+"60
+[; ;Lab4_Master.c: 60:                 selector = 0;
+[e $ ! _RBIF 139  ]
+{
+"61
+[; ;Lab4_Master.c: 61: 
+[e $U 141  ]
+{
+"62
+[; ;Lab4_Master.c: 62:                 segundos = 0x55;
+[e :U 142 ]
+"64
+[; ;Lab4_Master.c: 64:                 horas = 0x23;
+[e $U 144  ]
+{
+"65
+[; ;Lab4_Master.c: 65:                 dia = 0x31;
+[e :U 145 ]
+"66
+[; ;Lab4_Master.c: 66:                 mes = 0x12;
+[e ++ _segundos -> -> 1 `i `uc ]
+"67
+[; ;Lab4_Master.c: 67:                 anio = 0x22;
+[e $U 143  ]
+"68
+[; ;Lab4_Master.c: 68:                 break;
+[e :U 146 ]
+"69
+[; ;Lab4_Master.c: 69:             case 0b00001111:
+[e ++ _minutos -> -> 1 `i `uc ]
+"70
+[; ;Lab4_Master.c: 70:                 sendRTC = setting?1:0;
+[e $U 143  ]
+"71
+[; ;Lab4_Master.c: 71:                 break;
+[e :U 147 ]
+"72
+[; ;Lab4_Master.c: 72:             default:
+[e ++ _horas -> -> 1 `i `uc ]
+"73
+[; ;Lab4_Master.c: 73: 
+[e $U 143  ]
+"74
+[; ;Lab4_Master.c: 74:                 break;
+[e :U 148 ]
+"75
+[; ;Lab4_Master.c: 75:         }
+[e = _selector -> -> 4 `i `uc ]
+"76
+[; ;Lab4_Master.c: 76:         RBIF = 0;
+[e $U 143  ]
+"77
+[; ;Lab4_Master.c: 77:     }
+[e :U 149 ]
+"78
+[; ;Lab4_Master.c: 78: }
+[e ++ _dia -> -> 1 `i `uc ]
+"79
+[; ;Lab4_Master.c: 79: 
+[e $U 143  ]
+"80
+[; ;Lab4_Master.c: 80: 
+[e :U 150 ]
+"81
+[; ;Lab4_Master.c: 81: 
+[e ++ _mes -> -> 1 `i `uc ]
+"82
+[; ;Lab4_Master.c: 82: 
+[e $U 143  ]
+"83
+[; ;Lab4_Master.c: 83: 
+[e :U 151 ]
+"84
+[; ;Lab4_Master.c: 84: 
+[e ++ _anio -> -> 1 `i `uc ]
+"85
+[; ;Lab4_Master.c: 85: int main(void) {
+[e $U 143  ]
+"86
+[; ;Lab4_Master.c: 86:     setup();
+}
+[e $U 143  ]
+[e :U 144 ]
+[e [\ -> _selector `i , $ -> 0 `i 145
+ , $ -> 1 `i 146
+ , $ -> 2 `i 147
+ , $ -> 3 `i 148
+ , $ -> 4 `i 149
+ , $ -> 5 `i 150
+ , $ -> 6 `i 151
+ 143 ]
+[e :U 143 ]
+"87
+[; ;Lab4_Master.c: 87:     while(1){
+[e $U 140  ]
+"88
+[; ;Lab4_Master.c: 88: 
+[e :U 152 ]
+"89
+[; ;Lab4_Master.c: 89:         readPICslave();
+[e ++ _selector -> -> 1 `i `uc ]
+"90
+[; ;Lab4_Master.c: 90:         _delay((unsigned long)((10)*(8000000/4000.0)));
+[e $U 140  ]
+"91
+[; ;Lab4_Master.c: 91: 
+[e :U 153 ]
+"92
+[; ;Lab4_Master.c: 92:         if(setting)
+[e -- _selector -> -> 1 `i `uc ]
+"93
+[; ;Lab4_Master.c: 93:             setTime();
+[e $U 140  ]
+"94
+[; ;Lab4_Master.c: 94:         else
+[e :U 154 ]
+"95
+[; ;Lab4_Master.c: 95:             readRTCslave();
+[e = _setting -> -> 1 `i `ui ]
+"96
+[; ;Lab4_Master.c: 96:         _delay((unsigned long)((10)*(8000000/4000.0)));
+[e = _selector -> -> 0 `i `uc ]
+"98
+[; ;Lab4_Master.c: 98:         printLCD();
+[e = _segundos -> -> 85 `i `uc ]
+"99
+[; ;Lab4_Master.c: 99:         _delay((unsigned long)((10)*(8000000/4000.0)));
+[e = _minutos -> -> 89 `i `uc ]
+"100
+[; ;Lab4_Master.c: 100:     }
+[e = _horas -> -> 35 `i `uc ]
+"101
+[; ;Lab4_Master.c: 101: }
+[e = _dia -> -> 49 `i `uc ]
+"102
+[; ;Lab4_Master.c: 102: 
+[e = _mes -> -> 18 `i `uc ]
+"103
+[; ;Lab4_Master.c: 103: void setup(void){
+[e = _anio -> -> 34 `i `uc ]
+"104
+[; ;Lab4_Master.c: 104:     ANSEL = 0;
+[e $U 140  ]
+"105
+[; ;Lab4_Master.c: 105:     ANSELH= 0;
+[e :U 155 ]
+"106
+[; ;Lab4_Master.c: 106: 
+[e = _sendRTC -> ? != _setting -> -> 0 `i `ui : -> 1 `i -> 0 `i `ui ]
+"107
+[; ;Lab4_Master.c: 107:     TRISB = 0;
+[e $U 140  ]
+"108
+[; ;Lab4_Master.c: 108:     PORTB = 0;
+[e :U 156 ]
+"110
+[; ;Lab4_Master.c: 110:     TRISD = 0;
+[e $U 140  ]
+"111
+[; ;Lab4_Master.c: 111:     PORTD = 0;
+}
+[e $U 140  ]
+[e :U 141 ]
+[e [\ -> _PORTB `i , $ -> 30 `i 142
+ , $ -> 29 `i 152
+ , $ -> 27 `i 153
+ , $ -> 23 `i 154
+ , $ -> 15 `i 155
+ 156 ]
+[e :U 140 ]
+"112
+[; ;Lab4_Master.c: 112: 
+[e = _RBIF -> -> 0 `i `b ]
+"113
+[; ;Lab4_Master.c: 113: 
+}
+[e :U 139 ]
+"114
+[; ;Lab4_Master.c: 114:     OSCCONbits.IRCF = 0b111;
 [e :UE 138 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"57
-[; ;Lab4_Master.c: 57: void readPICslave(void){
+"121
+[; ;Lab4_Master.c: 121:     Lcd_Init();
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"58
-[; ;Lab4_Master.c: 58:         I2C_Master_Start();
+"122
+[; ;Lab4_Master.c: 122: 
 [e ( _setup ..  ]
-"59
-[; ;Lab4_Master.c: 59:         I2C_Master_Write(0x51);
-[e :U 141 ]
+"123
+[; ;Lab4_Master.c: 123: 
+[e :U 159 ]
 {
-"61
-[; ;Lab4_Master.c: 61:         I2C_Master_Stop();
+"125
+[; ;Lab4_Master.c: 125: }
 [e ( _readPICslave ..  ]
-"62
-[; ;Lab4_Master.c: 62: }
+"126
+[; ;Lab4_Master.c: 126: 
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"63
-[; ;Lab4_Master.c: 63: 
+"128
+[; ;Lab4_Master.c: 128:         I2C_Master_Start();
+[e $ ! != _setting -> -> 0 `i `ui 161  ]
+"129
+[; ;Lab4_Master.c: 129:         I2C_Master_Write(0x51);
+[e ( _setTime ..  ]
+[e $U 162  ]
+"130
+[; ;Lab4_Master.c: 130:         temperatura = I2C_Master_Read(0);
+[e :U 161 ]
+"131
+[; ;Lab4_Master.c: 131:         I2C_Master_Stop();
 [e ( _readRTCslave ..  ]
-"64
-[; ;Lab4_Master.c: 64: void readRTCslave(void){
+[e :U 162 ]
+"132
+[; ;Lab4_Master.c: 132: }
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"65
-[; ;Lab4_Master.c: 65: 
+"134
+[; ;Lab4_Master.c: 134: void readRTCslave(void){
 [e ( _printLCD ..  ]
-"66
-[; ;Lab4_Master.c: 66:         I2C_Master_Start();
+"135
+[; ;Lab4_Master.c: 135: 
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"136
+[; ;Lab4_Master.c: 136:         I2C_Master_Start();
 }
-[e :U 140 ]
-[e $U 141  ]
-[e :U 142 ]
-"67
-[; ;Lab4_Master.c: 67:         I2C_Master_Write(0b11010000);
-[e :UE 139 ]
+[e :U 158 ]
+[e $U 159  ]
+[e :U 160 ]
+"137
+[; ;Lab4_Master.c: 137:         I2C_Master_Write(0b11010000);
+[e :UE 157 ]
 }
-"69
-[; ;Lab4_Master.c: 69:         I2C_Master_RepeatedStart();
+"139
+[; ;Lab4_Master.c: 139:         I2C_Master_RepeatedStart();
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"70
-[; ;Lab4_Master.c: 70:         I2C_Master_Write(0b11010001);
+"140
+[; ;Lab4_Master.c: 140:         I2C_Master_Write(0b11010001);
 [e = _ANSEL -> -> 0 `i `uc ]
-"71
-[; ;Lab4_Master.c: 71:         segundos = I2C_Master_Read(0);
+"141
+[; ;Lab4_Master.c: 141:         segundos = I2C_Master_Read(0);
 [e = _ANSELH -> -> 0 `i `uc ]
-"73
-[; ;Lab4_Master.c: 73:         _delay((unsigned long)((5)*(8000000/4000.0)));
-[e = _TRISA -> -> 0 `i `uc ]
-"74
-[; ;Lab4_Master.c: 74: 
-[e = _PORTA -> -> 0 `i `uc ]
-"76
-[; ;Lab4_Master.c: 76:         I2C_Master_Start();
+"143
+[; ;Lab4_Master.c: 143:         _delay((unsigned long)((5)*(8000000/4000.0)));
 [e = _TRISB -> -> 0 `i `uc ]
-"77
-[; ;Lab4_Master.c: 77:         I2C_Master_Write(0b11010000);
+"144
+[; ;Lab4_Master.c: 144: 
 [e = _PORTB -> -> 0 `i `uc ]
-"79
-[; ;Lab4_Master.c: 79:         I2C_Master_RepeatedStart();
+"146
+[; ;Lab4_Master.c: 146:         I2C_Master_Start();
 [e = _TRISD -> -> 0 `i `uc ]
-"80
-[; ;Lab4_Master.c: 80:         I2C_Master_Write(0b11010001);
+"147
+[; ;Lab4_Master.c: 147:         I2C_Master_Write(0b11010000);
 [e = _PORTD -> -> 0 `i `uc ]
-"83
-[; ;Lab4_Master.c: 83:         _delay((unsigned long)((5)*(8000000/4000.0)));
+"150
+[; ;Lab4_Master.c: 150:         I2C_Master_Write(0b11010001);
 [e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
-"84
-[; ;Lab4_Master.c: 84: 
+"151
+[; ;Lab4_Master.c: 151:         minutos = I2C_Master_Read(0);
 [e = _SCS -> -> 1 `i `b ]
-"87
-[; ;Lab4_Master.c: 87:         I2C_Master_Write(0b11010000);
+"154
+[; ;Lab4_Master.c: 154: 
 [e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
-"90
-[; ;Lab4_Master.c: 90:         I2C_Master_Write(0b11010001);
+"157
+[; ;Lab4_Master.c: 157:         I2C_Master_Write(0b11010000);
 [e ( _Lcd_Init ..  ]
-"91
-[; ;Lab4_Master.c: 91:         horas = I2C_Master_Read(0);
-[e :UE 143 ]
+"160
+[; ;Lab4_Master.c: 160:         I2C_Master_Write(0b11010001);
+[e ( _iocb_init (1 -> -> 31 `i `uc ]
+"161
+[; ;Lab4_Master.c: 161:         horas = I2C_Master_Read(0);
+[e :UE 163 ]
 }
-"93
-[; ;Lab4_Master.c: 93:         _delay((unsigned long)((5)*(8000000/4000.0)));
+"163
+[; ;Lab4_Master.c: 163:         _delay((unsigned long)((5)*(8000000/4000.0)));
 [v _readPICslave `(v ~T0 @X0 1 ef ]
 {
 [e :U _readPICslave ]
 [f ]
-"94
-[; ;Lab4_Master.c: 94: }
+"164
+[; ;Lab4_Master.c: 164: 
 [e ( _I2C_Master_Start ..  ]
-"95
-[; ;Lab4_Master.c: 95: 
+"165
+[; ;Lab4_Master.c: 165: 
 [e ( _I2C_Master_Write (1 -> -> 81 `i `ui ]
-"96
-[; ;Lab4_Master.c: 96: void printLCD(void){
-[e = _PORTA -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
-"97
-[; ;Lab4_Master.c: 97: 
+"166
+[; ;Lab4_Master.c: 166:         I2C_Master_Start();
+[e = _temperatura -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"167
+[; ;Lab4_Master.c: 167:         I2C_Master_Write(0b11010000);
 [e ( _I2C_Master_Stop ..  ]
-"98
-[; ;Lab4_Master.c: 98:     Lcd_Set_Cursor(1,1);
-[e :UE 144 ]
+"168
+[; ;Lab4_Master.c: 168:         I2C_Master_Write(0x04);
+[e :UE 164 ]
 }
-"100
-[; ;Lab4_Master.c: 100:     Lcd_Set_Cursor(2,1);
+"170
+[; ;Lab4_Master.c: 170:         I2C_Master_Write(0b11010001);
 [v _readRTCslave `(v ~T0 @X0 1 ef ]
 {
 [e :U _readRTCslave ]
 [f ]
-"102
-[; ;Lab4_Master.c: 102:     Lcd_Write_Char((horas & 0x0F) + 0x30);
+"172
+[; ;Lab4_Master.c: 172:         I2C_Master_Stop();
 [e ( _I2C_Master_Start ..  ]
-"103
-[; ;Lab4_Master.c: 103:     Lcd_Write_Char(':');
+"173
+[; ;Lab4_Master.c: 173:         _delay((unsigned long)((5)*(8000000/4000.0)));
 [e ( _I2C_Master_Write (1 -> -> 208 `i `ui ]
-"104
-[; ;Lab4_Master.c: 104:     Lcd_Write_Char((minutos>>4 & 0x0F) + 0x30);
+"174
+[; ;Lab4_Master.c: 174: 
 [e ( _I2C_Master_Write (1 -> -> 0 `i `ui ]
-"105
-[; ;Lab4_Master.c: 105:     Lcd_Write_Char((minutos & 0x0F) + 0x30);
+"175
+[; ;Lab4_Master.c: 175: 
 [e ( _I2C_Master_RepeatedStart ..  ]
-"106
-[; ;Lab4_Master.c: 106:     Lcd_Write_Char(':');
+"176
+[; ;Lab4_Master.c: 176:         I2C_Master_Start();
 [e ( _I2C_Master_Write (1 -> -> 209 `i `ui ]
-"107
-[; ;Lab4_Master.c: 107:     Lcd_Write_Char((segundos>>4 & 0x0F) + 0x30);
+"177
+[; ;Lab4_Master.c: 177:         I2C_Master_Write(0b11010000);
 [e = _segundos -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
-"108
-[; ;Lab4_Master.c: 108:     Lcd_Write_Char((segundos & 0x0F) + 0x30);
+"178
+[; ;Lab4_Master.c: 178:         I2C_Master_Write(0x05);
 [e ( _I2C_Master_Stop ..  ]
-"109
-[; ;Lab4_Master.c: 109: }
+"179
+[; ;Lab4_Master.c: 179:         I2C_Master_RepeatedStart();
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"112
+"182
+[; ;Lab4_Master.c: 182:         I2C_Master_Stop();
 [e ( _I2C_Master_Start ..  ]
-"113
+"183
+[; ;Lab4_Master.c: 183:         _delay((unsigned long)((5)*(8000000/4000.0)));
 [e ( _I2C_Master_Write (1 -> -> 208 `i `ui ]
-"114
+"184
+[; ;Lab4_Master.c: 184: 
 [e ( _I2C_Master_Write (1 -> -> 1 `i `ui ]
-"115
+"185
+[; ;Lab4_Master.c: 185: 
 [e ( _I2C_Master_RepeatedStart ..  ]
-"116
+"186
+[; ;Lab4_Master.c: 186:         I2C_Master_Start();
 [e ( _I2C_Master_Write (1 -> -> 209 `i `ui ]
-"117
+"187
+[; ;Lab4_Master.c: 187:         I2C_Master_Write(0b11010000);
 [e = _minutos -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
-"118
+"188
+[; ;Lab4_Master.c: 188:         I2C_Master_Write(0x06);
 [e ( _I2C_Master_Stop ..  ]
-"119
+"189
+[; ;Lab4_Master.c: 189:         I2C_Master_RepeatedStart();
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"122
+"192
+[; ;Lab4_Master.c: 192:         I2C_Master_Stop();
 [e ( _I2C_Master_Start ..  ]
-"123
+"193
+[; ;Lab4_Master.c: 193:         _delay((unsigned long)((5)*(8000000/4000.0)));
 [e ( _I2C_Master_Write (1 -> -> 208 `i `ui ]
-"124
+"194
+[; ;Lab4_Master.c: 194: }
 [e ( _I2C_Master_Write (1 -> -> 2 `i `ui ]
-"125
+"195
+[; ;Lab4_Master.c: 195: 
 [e ( _I2C_Master_RepeatedStart ..  ]
-"126
+"196
+[; ;Lab4_Master.c: 196: void printLCD(void){
 [e ( _I2C_Master_Write (1 -> -> 209 `i `ui ]
-"127
+"197
+[; ;Lab4_Master.c: 197: 
 [e = _horas -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
-"128
+"198
+[; ;Lab4_Master.c: 198:     Lcd_Set_Cursor(1,1);
 [e ( _I2C_Master_Stop ..  ]
-"129
+"199
+[; ;Lab4_Master.c: 199:     Lcd_Write_Char((horas>>4 & 0x0F) + 0x30);
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"130
-[e :UE 145 ]
+"202
+[; ;Lab4_Master.c: 202:     Lcd_Write_Char((minutos>>4 & 0x0F) + 0x30);
+[e ( _I2C_Master_Start ..  ]
+"203
+[; ;Lab4_Master.c: 203:     Lcd_Write_Char((minutos & 0x0F) + 0x30);
+[e ( _I2C_Master_Write (1 -> -> 208 `i `ui ]
+"204
+[; ;Lab4_Master.c: 204:     Lcd_Write_Char(':');
+[e ( _I2C_Master_Write (1 -> -> 4 `i `ui ]
+"205
+[; ;Lab4_Master.c: 205:     Lcd_Write_Char((segundos>>4 & 0x0F) + 0x30);
+[e ( _I2C_Master_RepeatedStart ..  ]
+"206
+[; ;Lab4_Master.c: 206:     Lcd_Write_Char((segundos & 0x0F) + 0x30);
+[e ( _I2C_Master_Write (1 -> -> 209 `i `ui ]
+"207
+[; ;Lab4_Master.c: 207: 
+[e = _dia -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"208
+[; ;Lab4_Master.c: 208: 
+[e ( _I2C_Master_Stop ..  ]
+"209
+[; ;Lab4_Master.c: 209:     Lcd_Set_Cursor(2,1);
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"212
+[; ;Lab4_Master.c: 212:     Lcd_Write_Char('/');
+[e ( _I2C_Master_Start ..  ]
+"213
+[; ;Lab4_Master.c: 213:     Lcd_Write_Char((mes>>4 & 0x0F) + 0x30);
+[e ( _I2C_Master_Write (1 -> -> 208 `i `ui ]
+"214
+[; ;Lab4_Master.c: 214:     Lcd_Write_Char((mes & 0x0F) + 0x30);
+[e ( _I2C_Master_Write (1 -> -> 5 `i `ui ]
+"215
+[; ;Lab4_Master.c: 215:     Lcd_Write_Char('/');
+[e ( _I2C_Master_RepeatedStart ..  ]
+"216
+[; ;Lab4_Master.c: 216:     Lcd_Write_Char((anio>>4 & 0x0F) + 0x30);
+[e ( _I2C_Master_Write (1 -> -> 209 `i `ui ]
+"217
+[; ;Lab4_Master.c: 217:     Lcd_Write_Char((anio & 0x0F) + 0x30);
+[e = _mes -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"218
+[; ;Lab4_Master.c: 218: 
+[e ( _I2C_Master_Stop ..  ]
+"219
+[; ;Lab4_Master.c: 219: 
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"222
+[; ;Lab4_Master.c: 222:     Lcd_Write_String(temp_s);
+[e ( _I2C_Master_Start ..  ]
+"223
+[; ;Lab4_Master.c: 223:     Lcd_Write_String("'C");
+[e ( _I2C_Master_Write (1 -> -> 208 `i `ui ]
+"224
+[; ;Lab4_Master.c: 224: }
+[e ( _I2C_Master_Write (1 -> -> 6 `i `ui ]
+"225
+[; ;Lab4_Master.c: 225: 
+[e ( _I2C_Master_RepeatedStart ..  ]
+"226
+[; ;Lab4_Master.c: 226: void separar_digitos8(uint8_t num, char dig8[]){
+[e ( _I2C_Master_Write (1 -> -> 209 `i `ui ]
+"227
+[; ;Lab4_Master.c: 227:     uint8_t div1,div2,decenas,unidades;
+[e = _anio -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
+"228
+[; ;Lab4_Master.c: 228:     div1 = num / 10;
+[e ( _I2C_Master_Stop ..  ]
+"229
+[; ;Lab4_Master.c: 229:     unidades = num % 10;
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"230
+[; ;Lab4_Master.c: 230:     div2 = div1 / 10;
+[e :UE 165 ]
 }
-"132
+"232
+[; ;Lab4_Master.c: 232: 
 [v _printLCD `(v ~T0 @X0 1 ef ]
 {
 [e :U _printLCD ]
 [f ]
-"134
+"234
+[; ;Lab4_Master.c: 234:     dig8[0] = decenas + 0x30;
 [e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"135
-[e ( _Lcd_Write_String (1 :s 1C ]
-"136
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-"137
+"235
+[; ;Lab4_Master.c: 235: }
 [e ( _Lcd_Write_Char (1 -> + & >> -> _horas `i -> 4 `i -> 15 `i -> 48 `i `uc ]
-"138
+"236
+[; ;Lab4_Master.c: 236: 
 [e ( _Lcd_Write_Char (1 -> + & -> _horas `i -> 15 `i -> 48 `i `uc ]
-"139
+"237
+[; ;Lab4_Master.c: 237: void setTime(void){
 [e ( _Lcd_Write_Char (1 -> -> 58 `ui `uc ]
-"140
+"238
+[; ;Lab4_Master.c: 238: 
 [e ( _Lcd_Write_Char (1 -> + & >> -> _minutos `i -> 4 `i -> 15 `i -> 48 `i `uc ]
-"141
+"239
+[; ;Lab4_Master.c: 239: 
 [e ( _Lcd_Write_Char (1 -> + & -> _minutos `i -> 15 `i -> 48 `i `uc ]
-"142
+"240
+[; ;Lab4_Master.c: 240:     if(selector == 255)
 [e ( _Lcd_Write_Char (1 -> -> 58 `ui `uc ]
-"143
+"241
+[; ;Lab4_Master.c: 241:         selector = 6;
 [e ( _Lcd_Write_Char (1 -> + & >> -> _segundos `i -> 4 `i -> 15 `i -> 48 `i `uc ]
-"144
+"242
+[; ;Lab4_Master.c: 242:     else if (selector > 6)
 [e ( _Lcd_Write_Char (1 -> + & -> _segundos `i -> 15 `i -> 48 `i `uc ]
-"145
-[e :UE 146 ]
+"245
+[; ;Lab4_Master.c: 245:     if(segundos > 0x59)
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"246
+[; ;Lab4_Master.c: 246:         segundos = 0x00;
+[e ( _Lcd_Write_Char (1 -> + & >> -> _dia `i -> 4 `i -> 15 `i -> 48 `i `uc ]
+"247
+[; ;Lab4_Master.c: 247:     else if((segundos & 0x0F) > 0x09)
+[e ( _Lcd_Write_Char (1 -> + & -> _dia `i -> 15 `i -> 48 `i `uc ]
+"248
+[; ;Lab4_Master.c: 248:         segundos = (segundos & 0xF0) + 0x10;
+[e ( _Lcd_Write_Char (1 -> -> 47 `ui `uc ]
+"249
+[; ;Lab4_Master.c: 249: 
+[e ( _Lcd_Write_Char (1 -> + & >> -> _mes `i -> 4 `i -> 15 `i -> 48 `i `uc ]
+"250
+[; ;Lab4_Master.c: 250:     if(minutos > 0x59)
+[e ( _Lcd_Write_Char (1 -> + & -> _mes `i -> 15 `i -> 48 `i `uc ]
+"251
+[; ;Lab4_Master.c: 251:         minutos = 0x00;
+[e ( _Lcd_Write_Char (1 -> -> 47 `ui `uc ]
+"252
+[; ;Lab4_Master.c: 252:     else if((minutos & 0x0F) > 0x09)
+[e ( _Lcd_Write_Char (1 -> + & >> -> _anio `i -> 4 `i -> 15 `i -> 48 `i `uc ]
+"253
+[; ;Lab4_Master.c: 253:         minutos = (minutos & 0xF0) + 0x10;
+[e ( _Lcd_Write_Char (1 -> + & -> _anio `i -> 15 `i -> 48 `i `uc ]
+"256
+[; ;Lab4_Master.c: 256:         horas = 0x00;
+[e ( _separar_digitos8 (2 , _temperatura &U _temp_s ]
+"257
+[; ;Lab4_Master.c: 257:     else if((horas & 0x0F) > 0x09)
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 13 `i `uc ]
+"258
+[; ;Lab4_Master.c: 258:         horas = (horas & 0xF0) + 0x10;
+[e ( _Lcd_Write_String (1 &U _temp_s ]
+"259
+[; ;Lab4_Master.c: 259: 
+[e ( _Lcd_Write_String (1 :s 1C ]
+"260
+[; ;Lab4_Master.c: 260: 
+[e :UE 166 ]
 }
-[a 1C 84 105 109 101 0 ]
+"262
+[; ;Lab4_Master.c: 262:         dia = 0x00;
+[v _separar_digitos8 `(v ~T0 @X0 1 ef2`uc`*uc ]
+{
+[e :U _separar_digitos8 ]
+[v _num `uc ~T0 @X0 1 r1 ]
+[v _dig8 `*uc ~T0 @X0 1 r2 ]
+[f ]
+"263
+[; ;Lab4_Master.c: 263:     else if((dia & 0x0F) > 0x09)
+[v _div1 `uc ~T0 @X0 1 a ]
+[v _div2 `uc ~T0 @X0 1 a ]
+[v _decenas `uc ~T0 @X0 1 a ]
+[v _unidades `uc ~T0 @X0 1 a ]
+"264
+[; ;Lab4_Master.c: 264:         dia = (dia & 0xF0) + 0x10;
+[e = _div1 -> / -> _num `i -> 10 `i `uc ]
+"265
+[; ;Lab4_Master.c: 265: 
+[e = _unidades -> % -> _num `i -> 10 `i `uc ]
+"266
+[; ;Lab4_Master.c: 266:     if(mes > 0x12)
+[e = _div2 -> / -> _div1 `i -> 10 `i `uc ]
+"267
+[; ;Lab4_Master.c: 267:         mes = 0x00;
+[e = _decenas -> % -> _div1 `i -> 10 `i `uc ]
+"269
+[; ;Lab4_Master.c: 269:         mes = (mes & 0xF0) + 0x10;
+[e = *U + _dig8 * -> -> 1 `i `x -> -> # *U _dig8 `i `x -> + -> _unidades `i -> 48 `i `uc ]
+"270
+[; ;Lab4_Master.c: 270: 
+[e = *U + _dig8 * -> -> 0 `i `x -> -> # *U _dig8 `i `x -> + -> _decenas `i -> 48 `i `uc ]
+"271
+[; ;Lab4_Master.c: 271:     if(anio > 0x99)
+[e :UE 167 ]
+}
+"273
+[; ;Lab4_Master.c: 273:     else if((anio & 0x0F) > 0x09)
+[v _setTime `(v ~T0 @X0 1 ef ]
+{
+[e :U _setTime ]
+[f ]
+"276
+[; ;Lab4_Master.c: 276: 
+[e $ ! == -> _selector `i -> 255 `i 169  ]
+"277
+[; ;Lab4_Master.c: 277:     if (sendRTC){
+[e = _selector -> -> 6 `i `uc ]
+[e $U 170  ]
+"278
+[; ;Lab4_Master.c: 278: 
+[e :U 169 ]
+[e $ ! > -> _selector `i -> 6 `i 171  ]
+"279
+[; ;Lab4_Master.c: 279:         I2C_Master_Start();
+[e = _selector -> -> 0 `i `uc ]
+[e :U 171 ]
+[e :U 170 ]
+"281
+[; ;Lab4_Master.c: 281:         I2C_Master_Write(0x00);
+[e $ ! > -> _segundos `i -> 89 `i 172  ]
+"282
+[; ;Lab4_Master.c: 282:         I2C_Master_Write(segundos);
+[e = _segundos -> -> 0 `i `uc ]
+[e $U 173  ]
+"283
+[; ;Lab4_Master.c: 283:         I2C_Master_Stop();
+[e :U 172 ]
+[e $ ! > & -> _segundos `i -> 15 `i -> 9 `i 174  ]
+"284
+[; ;Lab4_Master.c: 284:         _delay((unsigned long)((5)*(8000000/4000.0)));
+[e = _segundos -> + & -> _segundos `i -> 240 `i -> 16 `i `uc ]
+[e :U 174 ]
+[e :U 173 ]
+"286
+[; ;Lab4_Master.c: 286:         I2C_Master_Start();
+[e $ ! > -> _minutos `i -> 89 `i 175  ]
+"287
+[; ;Lab4_Master.c: 287:         I2C_Master_Write(0b11010000);
+[e = _minutos -> -> 0 `i `uc ]
+[e $U 176  ]
+"288
+[; ;Lab4_Master.c: 288:         I2C_Master_Write(0x01);
+[e :U 175 ]
+[e $ ! > & -> _minutos `i -> 15 `i -> 9 `i 177  ]
+"289
+[; ;Lab4_Master.c: 289:         I2C_Master_Write(minutos);
+[e = _minutos -> + & -> _minutos `i -> 240 `i -> 16 `i `uc ]
+[e :U 177 ]
+[e :U 176 ]
+"291
+[; ;Lab4_Master.c: 291:         _delay((unsigned long)((5)*(8000000/4000.0)));
+[e $ ! > -> _horas `i -> 35 `i 178  ]
+"292
+[; ;Lab4_Master.c: 292: 
+[e = _horas -> -> 0 `i `uc ]
+[e $U 179  ]
+"293
+[; ;Lab4_Master.c: 293:         I2C_Master_Start();
+[e :U 178 ]
+[e $ ! > & -> _horas `i -> 15 `i -> 9 `i 180  ]
+"294
+[; ;Lab4_Master.c: 294:         I2C_Master_Write(0b11010000);
+[e = _horas -> + & -> _horas `i -> 240 `i -> 16 `i `uc ]
+[e :U 180 ]
+[e :U 179 ]
+"297
+[; ;Lab4_Master.c: 297:         I2C_Master_Stop();
+[e $ ! > -> _dia `i -> 49 `i 181  ]
+"298
+[; ;Lab4_Master.c: 298:         _delay((unsigned long)((5)*(8000000/4000.0)));
+[e = _dia -> -> 0 `i `uc ]
+[e $U 182  ]
+"299
+[; ;Lab4_Master.c: 299: 
+[e :U 181 ]
+[e $ ! > & -> _dia `i -> 15 `i -> 9 `i 183  ]
+"300
+[; ;Lab4_Master.c: 300:         I2C_Master_Start();
+[e = _dia -> + & -> _dia `i -> 240 `i -> 16 `i `uc ]
+[e :U 183 ]
+[e :U 182 ]
+"302
+[; ;Lab4_Master.c: 302:         I2C_Master_Write(0x04);
+[e $ ! > -> _mes `i -> 18 `i 184  ]
+"303
+[; ;Lab4_Master.c: 303:         I2C_Master_Write(dia);
+[e = _mes -> -> 0 `i `uc ]
+[e $U 185  ]
+"304
+[; ;Lab4_Master.c: 304:         I2C_Master_Stop();
+[e :U 184 ]
+[e $ ! > & -> _mes `i -> 15 `i -> 9 `i 186  ]
+"305
+[; ;Lab4_Master.c: 305:         _delay((unsigned long)((5)*(8000000/4000.0)));
+[e = _mes -> + & -> _mes `i -> 240 `i -> 16 `i `uc ]
+[e :U 186 ]
+[e :U 185 ]
+"307
+[; ;Lab4_Master.c: 307:         I2C_Master_Start();
+[e $ ! > -> _anio `i -> 153 `i 187  ]
+"308
+[; ;Lab4_Master.c: 308:         I2C_Master_Write(0b11010000);
+[e = _anio -> -> 0 `i `uc ]
+[e $U 188  ]
+"309
+[; ;Lab4_Master.c: 309:         I2C_Master_Write(0x05);
+[e :U 187 ]
+[e $ ! > & -> _anio `i -> 15 `i -> 9 `i 189  ]
+"310
+[; ;Lab4_Master.c: 310:         I2C_Master_Write(mes);
+[e = _anio -> + & -> _anio `i -> 240 `i -> 16 `i `uc ]
+[e :U 189 ]
+[e :U 188 ]
+"313
+[; ;Lab4_Master.c: 313: 
+[e $ ! != _sendRTC -> -> 0 `i `ui 190  ]
+{
+"315
+[; ;Lab4_Master.c: 315:         I2C_Master_Write(0b11010000);
+[e ( _I2C_Master_Start ..  ]
+"316
+[; ;Lab4_Master.c: 316:         I2C_Master_Write(0x06);
+[e ( _I2C_Master_Write (1 -> -> 208 `i `ui ]
+"317
+[; ;Lab4_Master.c: 317:         I2C_Master_Write(anio);
+[e ( _I2C_Master_Write (1 -> -> 0 `i `ui ]
+"318
+[; ;Lab4_Master.c: 318:         I2C_Master_Stop();
+[e ( _I2C_Master_Write (1 -> _segundos `ui ]
+"319
+[; ;Lab4_Master.c: 319:         _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( _I2C_Master_Stop ..  ]
+"320
+[; ;Lab4_Master.c: 320: 
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"322
+[; ;Lab4_Master.c: 322:         sendRTC = 0;
+[e ( _I2C_Master_Start ..  ]
+"323
+[; ;Lab4_Master.c: 323:     }
+[e ( _I2C_Master_Write (1 -> -> 208 `i `ui ]
+"324
+[; ;Lab4_Master.c: 324: }
+[e ( _I2C_Master_Write (1 -> -> 1 `i `ui ]
+"325
+[e ( _I2C_Master_Write (1 -> _minutos `ui ]
+"326
+[e ( _I2C_Master_Stop ..  ]
+"327
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"329
+[e ( _I2C_Master_Start ..  ]
+"330
+[e ( _I2C_Master_Write (1 -> -> 208 `i `ui ]
+"331
+[e ( _I2C_Master_Write (1 -> -> 2 `i `ui ]
+"332
+[e ( _I2C_Master_Write (1 -> _horas `ui ]
+"333
+[e ( _I2C_Master_Stop ..  ]
+"334
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"336
+[e ( _I2C_Master_Start ..  ]
+"337
+[e ( _I2C_Master_Write (1 -> -> 208 `i `ui ]
+"338
+[e ( _I2C_Master_Write (1 -> -> 4 `i `ui ]
+"339
+[e ( _I2C_Master_Write (1 -> _dia `ui ]
+"340
+[e ( _I2C_Master_Stop ..  ]
+"341
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"343
+[e ( _I2C_Master_Start ..  ]
+"344
+[e ( _I2C_Master_Write (1 -> -> 208 `i `ui ]
+"345
+[e ( _I2C_Master_Write (1 -> -> 5 `i `ui ]
+"346
+[e ( _I2C_Master_Write (1 -> _mes `ui ]
+"347
+[e ( _I2C_Master_Stop ..  ]
+"348
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"350
+[e ( _I2C_Master_Start ..  ]
+"351
+[e ( _I2C_Master_Write (1 -> -> 208 `i `ui ]
+"352
+[e ( _I2C_Master_Write (1 -> -> 6 `i `ui ]
+"353
+[e ( _I2C_Master_Write (1 -> _anio `ui ]
+"354
+[e ( _I2C_Master_Stop ..  ]
+"355
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"357
+[e = _setting -> -> 0 `i `ui ]
+"358
+[e = _sendRTC -> -> 0 `i `ui ]
+"359
+}
+[e :U 190 ]
+"360
+[e :UE 168 ]
+}
+[a 1C 39 67 0 ]
