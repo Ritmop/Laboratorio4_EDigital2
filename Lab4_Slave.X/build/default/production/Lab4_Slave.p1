@@ -54,6 +54,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3449
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 3449: extern volatile unsigned char ANSELH __attribute__((address(0x189)));
 [v _ANSELH `Vuc ~T0 @X0 0 e@393 ]
+"1602
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 1602: extern volatile unsigned char TRISD __attribute__((address(0x088)));
+[v _TRISD `Vuc ~T0 @X0 0 e@136 ]
 "1868
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 1868:     struct {
 [s S70 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
@@ -389,33 +392,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 140 ]
 "58
-[; ;Lab4_Slave.c: 58: }
+[; ;Lab4_Slave.c: 58:     }
 [e $ ! && ! _D_nA ! _R_nW 141  ]
 {
 "60
-[; ;Lab4_Slave.c: 60: void setup(void){
+[; ;Lab4_Slave.c: 60: 
 [e = _discard _SSPBUF ]
 "62
-[; ;Lab4_Slave.c: 62:     PORTA = 0;
+[; ;Lab4_Slave.c: 62:     TRISA = 255;
 [e = _SSPIF -> -> 0 `i `b ]
 "63
-[; ;Lab4_Slave.c: 63:     ANSEL = 1;
+[; ;Lab4_Slave.c: 63:     PORTA = 0;
 [e = _CKP -> -> 1 `i `b ]
 "64
-[; ;Lab4_Slave.c: 64:     ANSELH= 0;
+[; ;Lab4_Slave.c: 64:     ANSEL = 1;
 [e $U 142  ]
 [e :U 143 ]
 [e :U 142 ]
 [e $ ! _BF 143  ]
 [e :U 144 ]
 "65
-[; ;Lab4_Slave.c: 65: 
+[; ;Lab4_Slave.c: 65:     ANSELH= 0;
 [e = _PORTD _SSPBUF ]
 "66
 [; ;Lab4_Slave.c: 66: 
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
 "68
-[; ;Lab4_Slave.c: 68:     SCS = 1;
+[; ;Lab4_Slave.c: 68:     PORTD = 0;
 }
 [e $U 145  ]
 [e :U 141 ]
@@ -428,34 +431,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Lab4_Slave.c: 70: 
 [e = _BF -> -> 0 `i `b ]
 "71
-[; ;Lab4_Slave.c: 71:     adc_init(0, 0, 8, 0);
+[; ;Lab4_Slave.c: 71:     OSCCONbits.IRCF = 0b111;
 [e = _SSPBUF _temperatura ]
 "72
-[; ;Lab4_Slave.c: 72: 
+[; ;Lab4_Slave.c: 72:     SCS = 1;
 [e = _CKP -> -> 1 `i `b ]
 "73
-[; ;Lab4_Slave.c: 73:     I2C_Slave_Init(0x50);
+[; ;Lab4_Slave.c: 73: 
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
 "74
-[; ;Lab4_Slave.c: 74: }
+[; ;Lab4_Slave.c: 74: 
 [e $U 147  ]
 [e :U 148 ]
 [e :U 147 ]
 [e $ _BF 148  ]
 [e :U 149 ]
 "75
-[; ;Lab4_Slave.c: 75: 
+[; ;Lab4_Slave.c: 75:     adc_init(0, 0, 8, 0);
 }
 [e :U 146 ]
 [e :U 145 ]
 "77
-[; ;Lab4_Slave.c: 77:     return ((val-min1)*(max2-min2)/(max1-min1))+min2;
+[; ;Lab4_Slave.c: 77:     I2C_Slave_Init(0x50);
 [e = _SSPIF -> -> 0 `i `b ]
 "78
 [; ;Lab4_Slave.c: 78: }
 }
 [e :U 139 ]
 "79
+[; ;Lab4_Slave.c: 79: 
 [e :UE 138 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
@@ -474,38 +478,44 @@ Version 4.0 HI-TECH Software Intermediate Code
 "92
 [e = _temperatura ( _map (4 , , , , -> >> ( _adc_read ..  -> 8 `i `uc -> -> 0 `i `uc -> -> 255 `i `uc -> -> 0 `i `uc -> -> 70 `i `uc ]
 "93
+[e = _PORTD _temperatura ]
+"94
 }
 [e :U 151 ]
 [e $U 152  ]
 [e :U 153 ]
-"94
+"95
 [e :UE 150 ]
 }
-"96
+"97
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"97
-[e = _TRISA -> -> 255 `i `uc ]
 "98
-[e = _PORTA -> -> 0 `i `uc ]
+[e = _TRISA -> -> 255 `i `uc ]
 "99
-[e = _ANSEL -> -> 1 `i `uc ]
+[e = _PORTA -> -> 0 `i `uc ]
 "100
+[e = _ANSEL -> -> 1 `i `uc ]
+"101
 [e = _ANSELH -> -> 0 `i `uc ]
 "103
-[e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
+[e = _TRISD -> -> 0 `i `uc ]
 "104
-[e = _SCS -> -> 1 `i `b ]
+[e = _PORTD -> -> 0 `i `uc ]
 "107
+[e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
+"108
+[e = _SCS -> -> 1 `i `b ]
+"111
 [e ( _adc_init (4 , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 8 `i `uc -> -> 0 `i `uc ]
-"109
+"113
 [e ( _I2C_Slave_Init (1 -> -> 80 `i `uc ]
-"110
+"114
 [e :UE 154 ]
 }
-"112
+"116
 [v _map `(uc ~T0 @X0 1 ef5`uc`uc`uc`uc`uc ]
 {
 [e :U _map ]
@@ -515,9 +525,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _min2 `uc ~T0 @X0 1 r4 ]
 [v _max2 `uc ~T0 @X0 1 r5 ]
 [f ]
-"113
+"117
 [e ) -> + / * - -> _val `i -> _min1 `i - -> _max2 `i -> _min2 `i - -> _max1 `i -> _min1 `i -> _min2 `i `uc ]
 [e $UE 155  ]
-"114
+"118
 [e :UE 155 ]
 }

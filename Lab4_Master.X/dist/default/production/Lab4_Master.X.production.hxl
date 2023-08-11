@@ -1,28 +1,28 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\judah\AppData\Local\Temp\xcAshk4.\driver_tmp_3.o
+ C:\Users\judah\AppData\Local\Temp\xcAs2hs.\driver_tmp_3.o
  -Odist/default/production\Lab4_Master.X.production.hex
  -logfile=dist/default/production\Lab4_Master.X.production.hxl
  -addressing=2
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 5h		(C:\Users\judah\AppData\Local\Temp\xcAshk4.\driver_tmp_3.o)
-  8h - FF1h		(C:\Users\judah\AppData\Local\Temp\xcAshk4.\driver_tmp_3.o)
-  1000h - 1025h		(C:\Users\judah\AppData\Local\Temp\xcAshk4.\driver_tmp_3.o)
-  1CB4h - 1FFFh		(C:\Users\judah\AppData\Local\Temp\xcAshk4.\driver_tmp_3.o)
-  400Eh - 4011h		(C:\Users\judah\AppData\Local\Temp\xcAshk4.\driver_tmp_3.o)
+  0h - 5h		(C:\Users\judah\AppData\Local\Temp\xcAs2hs.\driver_tmp_3.o)
+  8h - FF1h		(C:\Users\judah\AppData\Local\Temp\xcAs2hs.\driver_tmp_3.o)
+  1000h - 1025h		(C:\Users\judah\AppData\Local\Temp\xcAs2hs.\driver_tmp_3.o)
+  1C9Eh - 1FFFh		(C:\Users\judah\AppData\Local\Temp\xcAs2hs.\driver_tmp_3.o)
+  400Eh - 4011h		(C:\Users\judah\AppData\Local\Temp\xcAs2hs.\driver_tmp_3.o)
  Unused ranges:
   6h - 7h
   FF2h - FFFh
-  1026h - 1CB3h
+  1026h - 1C9Dh
   2000h - 400Dh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\judah\AppData\Local\Temp\xcAshk4.\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\judah\AppData\Local\Temp\xcAs2hs.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
@@ -286,7 +286,9 @@
 00001010 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001020 | H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
-00001CB0 | -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001C90 | -- -- -- -- -- -- -- -- -- -- -- -- -- -- H1 H1
+00001CA0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001CB0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001CC0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001CD0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001CE0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1

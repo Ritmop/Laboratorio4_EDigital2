@@ -2753,6 +2753,7 @@ int main(void) {
 
         _delay((unsigned long)((5)*(8000000/4000.0)));
         temperatura = map(adc_read()>>8,0,255,0,70);
+        PORTD = temperatura;
     }
 }
 
@@ -2761,6 +2762,9 @@ void setup(void){
     PORTA = 0;
     ANSEL = 1;
     ANSELH= 0;
+
+    TRISD = 0;
+    PORTD = 0;
 
 
     OSCCONbits.IRCF = 0b111;

@@ -155,7 +155,7 @@ void setup(void){
     
     //Initialize LCB 4bit mode
     Lcd_Init();
-    
+    __delay_ms(10);
     //IOCB
     iocb_init(0x1F);    //RB0 - RB5 as pull-up inputs
 }

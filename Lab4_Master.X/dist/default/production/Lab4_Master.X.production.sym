@@ -15,10 +15,10 @@ __Hintentry 10 0 CODE 0
 __Lintentry 4 0 CODE 0
 __pintentry 4 0 CODE 0
 __end_of_Lcd_Write_String 1000 0 CODE 0
-_Lcd_Write_Char F47 0 CODE 0
-_dia 3C 0 BANK0 1
+_Lcd_Write_Char F0C 0 CODE 0
+_dia 3E 0 BANK0 1
 __end_of___awdiv 5C0 0 CODE 0
-_mes 3B 0 BANK0 1
+_mes 3D 0 BANK0 1
 _isr 4C2 0 CODE 0
 _readRTCslave 213 0 CODE 0
 _IOCB 96 0 ABS 0
@@ -26,9 +26,9 @@ _RBIE 5B 0 ABS 0
 _PEIE 5E 0 ABS 0
 _RBIF 58 0 ABS 0
 _WPUB 95 0 ABS 0
-_temperatura 40 0 BANK0 1
+_temperatura 42 0 BANK0 1
 _main 78E 0 CODE 0
-_anio 3A 0 BANK0 1
+_anio 3C 0 BANK0 1
 ___sp 0 0 STACK 2
 btemp 7E 0 ABS 0
 start 10 0 CODE 0
@@ -46,7 +46,7 @@ interrupt_function 4 0 CODE 0
 __Hconfig 2009 0 CONFIG 4
 __Lconfig 0 0 CONFIG 4
 __end_of_Lcd_Init 68A 0 CODE 0
-_I2C_Master_Stop E63 0 CODE 0
+_I2C_Master_Stop E58 0 CODE 0
 ?___awmod 20 0 BANK0 1
 __end_of__stringtab 810 0 STRING 0
 separar_digitos8@num 2D 0 BANK0 1
@@ -56,8 +56,8 @@ __Lram 0 0 ABS 0
 Lcd_Set_Cursor@b 24 0 BANK0 1
 separar_digitos8@dig8 28 0 BANK0 1
 separar_digitos8@div1 2E 0 BANK0 1
-_horas 3D 0 BANK0 1
-_setup EE5 0 CODE 0
+_horas 3F 0 BANK0 1
+_setup F7F 0 CODE 0
 __Hfunctab 0 0 ENTRY 0
 ?_I2C_Master_Read 20 0 BANK0 1
 __Lfunctab 0 0 ENTRY 0
@@ -66,16 +66,16 @@ _TRISC3 43B 0 ABS 0
 _TRISC4 43C 0 ABS 0
 __Hcommon 0 0 ABS 0
 __Lcommon 0 0 ABS 0
-__end_of_Lcd_Write_Char F80 0 CODE 0
+__end_of_Lcd_Write_Char F45 0 CODE 0
 __Heeprom_data 0 0 EEDATA 3
 __Leeprom_data 0 0 EEDATA 3
 _SSPADD 93 0 ABS 0
 ___int_sp 0 0 STACK 2
 ?___lldiv 20 0 BANK0 1
 ?___awdiv 20 0 BANK0 1
-_Lcd_Port EC5 0 CODE 0
+_Lcd_Port EBA 0 CODE 0
 _ANSELH 189 0 ABS 0
-_segundos 3F 0 BANK0 1
+_segundos 41 0 BANK0 1
 _SSPBUF 13 0 ABS 0
 _selector 78 0 COMMON 1
 __Habs1 0 0 ABS 0
@@ -89,7 +89,7 @@ __Hsfr2 0 0 ABS 0
 __Lsfr2 0 0 ABS 0
 __Hsfr3 0 0 ABS 0
 __Lsfr3 0 0 ABS 0
-__end_of_I2C_Master_Read F47 0 CODE 0
+__end_of_I2C_Master_Read F0C 0 CODE 0
 ___stackhi 0 0 ABS 0
 separar_digitos8@unidades 2C 0 BANK0 1
 _Lcd_Write_String FBA 0 CODE 0
@@ -98,19 +98,19 @@ __end_of_readPICslave 7F9 0 CODE 0
 __Hcode 0 0 ABS 0
 __Lcode 0 0 ABS 0
 Lcd_Write_Char@y 23 0 BANK0 1
-__end_of_I2C_Master_Wait E8C 0 CODE 0
+__end_of_I2C_Master_Wait E81 0 CODE 0
 __HcstackBANK0 0 0 ABS 0
 __LcstackBANK0 0 0 ABS 0
 __pcstackBANK0 20 0 BANK0 1
-__end_of_I2C_Master_Init FBA 0 CODE 0
+__end_of_I2C_Master_Init F7F 0 CODE 0
 ___awmod@sign 25 0 BANK0 1
-_temp_s 41 0 BANK0 1
+_temp_s 43 0 BANK0 1
 saved_w 7E 0 ABS 0
-__end_of_I2C_Master_Stop E6C 0 CODE 0
+__end_of_I2C_Master_Stop E61 0 CODE 0
 __Hinit 10 0 CODE 0
 __Linit 10 0 CODE 0
 __end_of_main 7D5 0 CODE 0
-__end_of_Lcd_Cmd EA8 0 CODE 0
+__end_of_Lcd_Cmd E9D 0 CODE 0
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 end_of_initialization 24 0 CODE 0
@@ -123,14 +123,14 @@ _PORTDbits 8 0 ABS 0
 __Hstrings 0 0 ABS 0
 __Lstrings 0 0 ABS 0
 __pstrings 800 0 STRING 0
-_iocb_init EA8 0 CODE 0
-_I2C_Master_Read F15 0 CODE 0
-__end_of_I2C_Master_RepeatedStart E75 0 CODE 0
+_iocb_init E9D 0 CODE 0
+_I2C_Master_Read EDA 0 CODE 0
+__end_of_I2C_Master_RepeatedStart E6A 0 CODE 0
 I2C_Master_Write@d 20 0 BANK0 1
 __end_of_readRTCslave 3C3 0 CODE 0
 __Hbank0 0 0 ABS 0
 __Lbank0 0 0 ABS 0
-__end_of_iocb_init EC5 0 CODE 0
+__end_of_iocb_init EBA 0 CODE 0
 _Lcd_Set_Cursor 742 0 CODE 0
 __Hbank1 0 0 ABS 0
 __Lbank1 0 0 ABS 0
@@ -143,24 +143,24 @@ ___latbits 2 0 ABS 0
 __Hpowerup 0 0 CODE 0
 _SSPSTAT 94 0 ABS 0
 __Lpowerup 0 0 CODE 0
-_I2C_Master_RepeatedStart E6C 0 CODE 0
+_I2C_Master_RepeatedStart E61 0 CODE 0
 _SSPCON2bits 91 0 ABS 0
-__ptext1 EE5 0 CODE 0
-__ptext2 EA8 0 CODE 0
+__ptext1 F7F 0 CODE 0
+__ptext2 E9D 0 CODE 0
 __ptext3 628 0 CODE 0
-__ptext4 F80 0 CODE 0
+__ptext4 F45 0 CODE 0
 __ptext5 5C0 0 CODE 0
 __ptext6 28 0 CODE 0
 __ptext7 213 0 CODE 0
 Lcd_Set_Cursor@a 26 0 BANK0 1
-__ptext8 E6C 0 CODE 0
+__ptext8 E61 0 CODE 0
 __ptext9 7D5 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
 __end_of__initialization 24 0 CODE 0
 Lcd_Write_String@a 25 0 BANK0 1
 Lcd_Write_String@i 2A 0 BANK0 1
-_Lcd_Cmd E8C 0 CODE 0
+_Lcd_Cmd E81 0 CODE 0
 __H__absolute__ 0 0 ABS 0
 __L__absolute__ 0 0 ABS 0
 Lcd_Set_Cursor@temp 29 0 BANK0 1
@@ -172,7 +172,7 @@ ___awmod 6E7 0 CODE 0
 __Hspace_0 1000 0 ABS 0
 __Lspace_0 0 0 ABS 0
 __end_of_isr 557 0 CODE 0
-_setting 38 0 BANK0 1
+_setting 3A 0 BANK0 1
 __Hspace_1 79 0 ABS 0
 __Lspace_1 0 0 ABS 0
 __Hspace_2 0 0 ABS 0
@@ -187,22 +187,22 @@ __Lspace_3 0 0 ABS 0
 __end_of_Lcd_Set_Cursor 78E 0 CODE 0
 __Hspace_4 4010 0 ABS 0
 __Lspace_4 0 0 ABS 0
-_minutos 3E 0 BANK0 1
+_minutos 40 0 BANK0 1
 Lcd_Set_Cursor@z 27 0 BANK0 1
 __HbssBANK0 0 0 ABS 0
 __LbssBANK0 0 0 ABS 0
-__pbssBANK0 38 0 BANK0 1
+__pbssBANK0 3A 0 BANK0 1
 separar_digitos8@decenas 2B 0 BANK0 1
-_I2C_Master_Start E5A 0 CODE 0
-__ptext10 E75 0 CODE 0
-__ptext20 F47 0 CODE 0
-__ptext11 E63 0 CODE 0
+_I2C_Master_Start E4F 0 CODE 0
+__ptext10 E6A 0 CODE 0
+__ptext20 F0C 0 CODE 0
+__ptext11 E58 0 CODE 0
 __ptext21 742 0 CODE 0
-__ptext12 E5A 0 CODE 0
-__ptext22 E8C 0 CODE 0
-__ptext13 F15 0 CODE 0
-__ptext23 EC5 0 CODE 0
-__ptext14 E7F 0 CODE 0
+__ptext12 E4F 0 CODE 0
+__ptext22 E81 0 CODE 0
+__ptext13 EDA 0 CODE 0
+__ptext23 EBA 0 CODE 0
+__ptext14 E74 0 CODE 0
 __ptext24 4C2 0 CODE 0
 I2C_Master_Read@a 20 0 BANK0 1
 __ptext15 3C3 0 CODE 0
@@ -222,21 +222,21 @@ __Lend_init 10 0 CODE 0
 Lcd_Write_Char@a 24 0 BANK0 1
 ___lldiv@divisor 20 0 BANK0 1
 ___awdiv@divisor 20 0 BANK0 1
-__end_of_setup F15 0 CODE 0
+__end_of_setup FBA 0 CODE 0
 _printLCD 3C3 0 CODE 0
 __Hreset_vec 3 0 CODE 0
 __Lreset_vec 0 0 CODE 0
-_I2C_Master_Write E75 0 CODE 0
+_I2C_Master_Write E6A 0 CODE 0
 intlevel0 0 0 ENTRY 0
 intlevel1 0 0 ENTRY 0
-__end_of_I2C_Master_Write E7F 0 CODE 0
+__end_of_I2C_Master_Write E74 0 CODE 0
 intlevel2 0 0 ENTRY 0
 intlevel3 0 0 ENTRY 0
 Lcd_Write_Char@temp 22 0 BANK0 1
 intlevel4 0 0 ENTRY 0
-__end_of_Lcd_Port EE5 0 CODE 0
+__end_of_Lcd_Port EDA 0 CODE 0
 intlevel5 0 0 ENTRY 0
-_I2C_Master_Wait E7F 0 CODE 0
+_I2C_Master_Wait E74 0 CODE 0
 __end_of_printLCD 4C2 0 CODE 0
 __HcstackCOMMON 0 0 ABS 0
 __LcstackCOMMON 0 0 ABS 0
@@ -244,8 +244,8 @@ __pcstackCOMMON 70 0 COMMON 1
 start_initialization 13 0 CODE 0
 ___lldiv@quotient 29 0 BANK0 1
 ___awdiv@quotient 26 0 BANK0 1
-__end_of_I2C_Master_Start E63 0 CODE 0
-_I2C_Master_Init F80 0 CODE 0
+__end_of_I2C_Master_Start E58 0 CODE 0
+_I2C_Master_Init F45 0 CODE 0
 __Hmaintext 0 0 ABS 0
 __Lmaintext 0 0 ABS 0
 __pmaintext 78E 0 CODE 0
@@ -264,24 +264,24 @@ ___awdiv@dividend 22 0 BANK0 1
 reset_vec 0 5 CODE 0 0
 intentry 8 FF1 CODE 8 0
 cstackCOMMON 70 78 COMMON 70 1
-cstackBANK0 20 43 BANK0 20 1
+cstackBANK0 20 45 BANK0 20 1
 text19 1F74 1FFF CODE 1F74 0
-text4 1F00 1F73 CODE 1F00 0
-text20 1E8E 1EFF CODE 1E8E 0
-text13 1E2A 1E8D CODE 1E2A 0
-text1 1DCA 1E29 CODE 1DCA 0
-text23 1D8A 1DC9 CODE 1D8A 0
-text2 1D50 1D89 CODE 1D50 0
-text22 1D18 1D4F CODE 1D18 0
+text1 1EFE 1F73 CODE 1EFE 0
+text4 1E8A 1EFD CODE 1E8A 0
+text20 1E18 1E89 CODE 1E18 0
+text13 1DB4 1E17 CODE 1DB4 0
+text23 1D74 1DB3 CODE 1D74 0
+text2 1D3A 1D73 CODE 1D3A 0
+text22 1D02 1D39 CODE 1D02 0
 strings 1000 1025 STRING 1000 0
-text14 1CFE 1D17 CODE 1CFE 0
-text10 1CEA 1CFD CODE 1CEA 0
-text8 1CD8 1CE9 CODE 1CD8 0
-text11 1CC6 1CD7 CODE 1CC6 0
-text12 1CB4 1CC5 CODE 1CB4 0
+text14 1CE8 1D01 CODE 1CE8 0
+text10 1CD4 1CE7 CODE 1CD4 0
+text8 1CC2 1CD3 CODE 1CC2 0
+text11 1CB0 1CC1 CODE 1CB0 0
+text12 1C9E 1CAF CODE 1C9E 0
 %locals
 dist/default/production\Lab4_Master.X.production.o
-C:\Users\judah\AppData\Local\Temp\xcAshk4.\driver_tmp_1.s
+C:\Users\judah\AppData\Local\Temp\xcAs2hs.\driver_tmp_1.s
 1043 13 0 CODE 0
 1046 13 0 CODE 0
 1090 13 0 CODE 0
@@ -315,28 +315,29 @@ Lab4_Master.c
 132 7B6 0 CODE 0
 134 7C1 0 CODE 0
 135 7C6 0 CODE 0
-139 EE5 0 CODE 0
-140 EE5 0 CODE 0
-141 EE8 0 CODE 0
-143 EE9 0 CODE 0
-144 EEC 0 CODE 0
-146 EEF 0 CODE 0
-147 EF2 0 CODE 0
-150 EF5 0 CODE 0
-151 EF9 0 CODE 0
-154 EFA 0 CODE 0
-157 F09 0 CODE 0
-160 F0E 0 CODE 0
-161 F14 0 CODE 0
+139 F7F 0 CODE 0
+140 F7F 0 CODE 0
+141 F82 0 CODE 0
+143 F83 0 CODE 0
+144 F86 0 CODE 0
+146 F89 0 CODE 0
+147 F8C 0 CODE 0
+150 F8F 0 CODE 0
+151 F93 0 CODE 0
+154 F94 0 CODE 0
+157 FA3 0 CODE 0
+158 FA8 0 CODE 0
+160 FB3 0 CODE 0
+161 FB9 0 CODE 0
 iocb_init.c
-4 EA8 0 CODE 0
-5 EAB 0 CODE 0
-6 EB1 0 CODE 0
-7 EB2 0 CODE 0
-8 EBA 0 CODE 0
-9 EBB 0 CODE 0
-10 EC3 0 CODE 0
-11 EC4 0 CODE 0
+4 E9D 0 CODE 0
+5 EA0 0 CODE 0
+6 EA6 0 CODE 0
+7 EA7 0 CODE 0
+8 EAF 0 CODE 0
+9 EB0 0 CODE 0
+10 EB8 0 CODE 0
+11 EB9 0 CODE 0
 ../../../LibreriasPIC/LCD4b.c
 65 628 0 CODE 0
 66 628 0 CODE 0
@@ -355,16 +356,16 @@ iocb_init.c
 80 683 0 CODE 0
 81 689 0 CODE 0
 I2C.c
-16 F80 0 CODE 0
-18 F80 0 CODE 0
-19 F84 0 CODE 0
-20 F87 0 CODE 0
-20 F92 0 CODE 0
-20 F98 0 CODE 0
-21 FB6 0 CODE 0
-22 FB7 0 CODE 0
-23 FB8 0 CODE 0
-24 FB9 0 CODE 0
+16 F45 0 CODE 0
+18 F45 0 CODE 0
+19 F49 0 CODE 0
+20 F4C 0 CODE 0
+20 F57 0 CODE 0
+20 F5D 0 CODE 0
+21 F7B 0 CODE 0
+22 F7C 0 CODE 0
+23 F7D 0 CODE 0
+24 F7E 0 CODE 0
 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\__lldiv.c
 5 5C0 0 CODE 0
 13 5C0 0 CODE 0
@@ -528,10 +529,10 @@ Lab4_Master.c
 229 3B8 0 CODE 0
 230 3C2 0 CODE 0
 I2C.c
-47 E6C 0 CODE 0
-49 E6C 0 CODE 0
-50 E71 0 CODE 0
-51 E74 0 CODE 0
+47 E61 0 CODE 0
+49 E61 0 CODE 0
+50 E66 0 CODE 0
+51 E69 0 CODE 0
 Lab4_Master.c
 163 7D5 0 CODE 0
 164 7D5 0 CODE 0
@@ -540,35 +541,35 @@ Lab4_Master.c
 167 7F3 0 CODE 0
 168 7F8 0 CODE 0
 I2C.c
-65 E75 0 CODE 0
-67 E75 0 CODE 0
-68 E7A 0 CODE 0
-69 E7E 0 CODE 0
-55 E63 0 CODE 0
-57 E63 0 CODE 0
-58 E68 0 CODE 0
-59 E6B 0 CODE 0
-39 E5A 0 CODE 0
-41 E5A 0 CODE 0
-42 E5F 0 CODE 0
-43 E62 0 CODE 0
-74 F15 0 CODE 0
-77 F15 0 CODE 0
-78 F1A 0 CODE 0
-79 F1D 0 CODE 0
-80 F22 0 CODE 0
-81 F2B 0 CODE 0
-82 F30 0 CODE 0
-83 F38 0 CODE 0
-84 F3B 0 CODE 0
-85 F3C 0 CODE 0
-86 F3F 0 CODE 0
-87 F3F 0 CODE 0
-88 F40 0 CODE 0
-89 F46 0 CODE 0
-32 E7F 0 CODE 0
-34 E7F 0 CODE 0
-35 E8B 0 CODE 0
+65 E6A 0 CODE 0
+67 E6A 0 CODE 0
+68 E6F 0 CODE 0
+69 E73 0 CODE 0
+55 E58 0 CODE 0
+57 E58 0 CODE 0
+58 E5D 0 CODE 0
+59 E60 0 CODE 0
+39 E4F 0 CODE 0
+41 E4F 0 CODE 0
+42 E54 0 CODE 0
+43 E57 0 CODE 0
+74 EDA 0 CODE 0
+77 EDA 0 CODE 0
+78 EDF 0 CODE 0
+79 EE2 0 CODE 0
+80 EE7 0 CODE 0
+81 EF0 0 CODE 0
+82 EF5 0 CODE 0
+83 EFD 0 CODE 0
+84 F00 0 CODE 0
+85 F01 0 CODE 0
+86 F04 0 CODE 0
+87 F04 0 CODE 0
+88 F05 0 CODE 0
+89 F0B 0 CODE 0
+32 E74 0 CODE 0
+34 E74 0 CODE 0
+35 E80 0 CODE 0
 Lab4_Master.c
 232 3C3 0 CODE 0
 234 3C3 0 CODE 0
@@ -693,21 +694,21 @@ C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\awdiv.c
 101 FE8 0 CODE 0
 101 FFB 0 CODE 0
 102 FFF 0 CODE 0
-83 F47 0 CODE 0
-85 F4A 0 CODE 0
-86 F4D 0 CODE 0
-87 F50 0 CODE 0
-88 F51 0 CODE 0
-88 F54 0 CODE 0
-88 F57 0 CODE 0
-89 F5F 0 CODE 0
-90 F62 0 CODE 0
-91 F69 0 CODE 0
-92 F6C 0 CODE 0
-93 F72 0 CODE 0
-94 F75 0 CODE 0
-95 F7C 0 CODE 0
-96 F7F 0 CODE 0
+83 F0C 0 CODE 0
+85 F0F 0 CODE 0
+86 F12 0 CODE 0
+87 F15 0 CODE 0
+88 F16 0 CODE 0
+88 F19 0 CODE 0
+88 F1C 0 CODE 0
+89 F24 0 CODE 0
+90 F27 0 CODE 0
+91 F2E 0 CODE 0
+92 F31 0 CODE 0
+93 F37 0 CODE 0
+94 F3A 0 CODE 0
+95 F41 0 CODE 0
+96 F44 0 CODE 0
 48 742 0 CODE 0
 50 745 0 CODE 0
 51 74A 0 CODE 0
@@ -726,31 +727,31 @@ C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\awdiv.c
 60 77F 0 CODE 0
 61 785 0 CODE 0
 63 78D 0 CODE 0
-35 E8C 0 CODE 0
-36 E8F 0 CODE 0
-37 E90 0 CODE 0
-38 E96 0 CODE 0
-39 E99 0 CODE 0
-40 EA4 0 CODE 0
-41 EA7 0 CODE 0
-13 EC5 0 CODE 0
-14 EC8 0 CODE 0
-15 ECC 0 CODE 0
-16 ECE 0 CODE 0
-17 ECE 0 CODE 0
-19 ECF 0 CODE 0
-20 ED3 0 CODE 0
-21 ED5 0 CODE 0
-22 ED5 0 CODE 0
-24 ED6 0 CODE 0
-25 EDA 0 CODE 0
-26 EDC 0 CODE 0
-27 EDC 0 CODE 0
-29 EDD 0 CODE 0
-30 EE1 0 CODE 0
-31 EE3 0 CODE 0
-32 EE3 0 CODE 0
-33 EE4 0 CODE 0
+35 E81 0 CODE 0
+36 E84 0 CODE 0
+37 E85 0 CODE 0
+38 E8B 0 CODE 0
+39 E8E 0 CODE 0
+40 E99 0 CODE 0
+41 E9C 0 CODE 0
+13 EBA 0 CODE 0
+14 EBD 0 CODE 0
+15 EC1 0 CODE 0
+16 EC3 0 CODE 0
+17 EC3 0 CODE 0
+19 EC4 0 CODE 0
+20 EC8 0 CODE 0
+21 ECA 0 CODE 0
+22 ECA 0 CODE 0
+24 ECB 0 CODE 0
+25 ECF 0 CODE 0
+26 ED1 0 CODE 0
+27 ED1 0 CODE 0
+29 ED2 0 CODE 0
+30 ED6 0 CODE 0
+31 ED8 0 CODE 0
+32 ED8 0 CODE 0
+33 ED9 0 CODE 0
 Lab4_Master.c
 59 4C2 0 CODE 0
 60 4C2 0 CODE 0

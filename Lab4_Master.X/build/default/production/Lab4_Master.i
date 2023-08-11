@@ -2835,7 +2835,7 @@ void setup(void){
 
 
     Lcd_Init();
-
+    _delay((unsigned long)((10)*(8000000/4000.0)));
 
     iocb_init(0x1F);
 }

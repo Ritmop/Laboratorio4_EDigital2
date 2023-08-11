@@ -90,6 +90,7 @@ int main(void) {
         //Capture pot val
         __delay_ms(5);
         temperatura = map(adc_read()>>8,0,255,0,70);
+        PORTD = temperatura;
     }
 }
 /*-------------------------------- SUBROUTINES -------------------------------*/
@@ -98,6 +99,9 @@ void setup(void){
     PORTA = 0;
     ANSEL = 1;  //AN0 - RA0 as analog
     ANSELH= 0;
+    
+    TRISD = 0;
+    PORTD = 0;
     
     //OSCILLATOR CONFIG
     OSCCONbits.IRCF = 0b111;  //Internal clock frequency 8MHz
